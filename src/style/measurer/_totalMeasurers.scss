@@ -1,0 +1,68 @@
+.__details_measurer_consumption_voltage_variable__ {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  .__details_measurer_information_card__ {
+    width: 325px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .__details_measurer_information_card_title__ {
+      width: 100%;
+      height: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+    }
+    .__details_measurer_information_card_container__ {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 80%;
+      span {
+        color: #54a560;
+      }
+      .__details_measurer_information_card_now__ {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        span {
+          font-size: 55px;
+        }
+      }
+    }
+  }
+
+  .__details_measurer_consumption_voltage_variable_title__ {
+    height: 15%;
+    font-size: 20px;
+    margin-top: 3px;
+    padding-left: 15px;
+  }
+  .__details_measurer_consumption_voltage_variable_value__ {
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  table {
+    width: 170px;
+  }
+  td {
+    text-align: center;
+    padding: 5px;
+    //border: #85c768 2px solid;
+    border-style: solid;
+    border: #000000 2px solid;
+  }
+}

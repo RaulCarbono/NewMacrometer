@@ -1,0 +1,175 @@
+._cardMeasurers_container_ {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 220px;
+  justify-content: space-between;
+  .__details_measurer_consumption_variables_CFA_graphic__ {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 10px;
+    //box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    //box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; //#21
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; //#22
+    .__details_measurer_consumption_variables_CFA_graphic_title__ {
+      height: 20%;
+      color: white;
+      border-radius: 10px 10px 0px 0px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+    .__details_measurer_consumption_variables_CFA_graphic_title__span {
+      font-size: 1.4rem;
+      font-weight: bold;
+      //color: #666D7A
+    }
+    // .background_lectura {
+    //   background: rgb(51, 195, 34);
+    //   background: linear-gradient(
+    //     200deg,
+    //     rgba(51, 195, 34, 1) 1%,
+    //     rgba(51, 195, 34, 0.577468487394958) 97%
+    //   );
+    // }
+
+    .background_CFA {
+      background-color: #fbab7e;
+      background-image: linear-gradient(90deg, #f3fb7e, #dfa320);
+    }
+    .background_CFB {
+      background-color: #21d4fd;
+      background-image: linear-gradient(90deg, #21d4fd 0%, #4213dc 100%);
+    }
+    .background_CFC {
+      background-color: #ff7a3b;
+      background-image: linear-gradient(90deg, #ff7a3b 0%, #ff2525 74%);
+    }
+    .__details_measurer_consumption_variables_CFA_graphic_image__ {
+      background-color: #21d4fd;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 0px 0px 10px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .__details_measurer_container {
+      display: flex;
+      flex-direction: row;
+      height: 80%;
+      width: 100%;
+
+      .__details_measurer_busquedad__ {
+        display: grid;
+        grid-template-rows: 2;
+        width: 100%;
+        gap: 10px;
+        margin-top: 15px;
+        // color: #54a560;
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 50px;
+        .__details_mesurer_kwh {
+          font-family: "Montserrat", sans-serif;
+          color: #000;
+          font-size: 35px;
+        }
+      }
+
+      .__details_measurer_information_card_now__ {
+        display: grid;
+        width: 90%;
+        grid-template-rows: repeat(4, 30px);
+        grid-template-columns: repeat(2, 80px);
+        align-items: center;
+        text-align: center;
+        gap: 5px;
+      }
+    }
+    .__button_options__ {
+      display: grid;
+
+      width: 100%;
+      gap: 10px;
+      grid-template-columns: repeat(2, 80px);
+      .__effect_button__:hover {
+        color: #39af49;
+      }
+    }
+  }
+  .__details_measurer_consumption_variables_CFA_value__ {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin-left: 10px;
+    justify-content: space-around;
+    .__details_measurer_consumption_variables_CFA_value_vfa__ {
+      //box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      //box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;//#21
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; //#22
+      height: 40%;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 3%;
+      .__details_measurer_consumption_variables_CFA_value_vfa_title__ {
+        color: black;
+        height: 15%;
+        margin-top: 5px;
+        font-size: 19px;
+      }
+      .__details_measurer_consumption_variables_CFA_value_vfa_value__ {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        color: black;
+        font-size: 20px;
+        height: 75%;
+      }
+    }
+    .border_color_CFA {
+      border: #f7ce68 1px solid;
+    }
+    .border_color_CFB {
+      border: #468be0 1px solid;
+    }
+    .border_color_CFC {
+      border: #ff2525 1px solid;
+    }
+    .__details_measurer_consumption_variables_CFA_value_fpa__ {
+      //box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      //box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 40%;
+      border-radius: 10px;
+      //background: rgba(255, 255, 255);
+      .__details_measurer_consumption_variables_CFA_value_vfa_title__ {
+        color: black;
+        height: 15%;
+        margin-top: 5px;
+        font-size: 20px;
+      }
+      .__details_measurer_consumption_variables_CFA_value_vfa_value__ {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        color: black;
+        font-size: 20px;
+        height: 75%;
+      }
+    }
+  }
+}

@@ -1,0 +1,283 @@
+// .__details_measurer_container__ {
+//   margin-top: 60px;
+//   height: 100%;
+//   align-self: center;
+//   width: 95%;
+//   .__details_measurer_information__ {
+//     width: 60%;
+//     height: 15%;
+//     display: flex;
+//     justify-content: left;
+//     align-items: center;
+//     margin-bottom: 0.5%;
+//     margin-top: 0.5%;
+//     .__details_measurer_information_card__ {
+//       width: 20%;
+//       height: 75%;
+//       background: rgb(214, 214, 214);
+//       background: linear-gradient(
+//         0deg,
+//         rgba(214, 214, 214, 0.944437149859944) 0%,
+//         rgba(245, 244, 244, 1) 1%
+//       );
+//       box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+//         rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+//       border-radius: 15px;
+//       .__details_measurer_information_card_title__ {
+//         margin-top: 3%;
+//         width: 100%;
+//         height: 20%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         font-size: 20px;
+//       }
+//       .__details_measurer_information_card_container__ {
+//         .__details_measurer_information_card_now__ {
+//           width: 100%;
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: space-around;
+//           align-items: center;
+
+//           span {
+//             font-family: $font_weather;
+//             font-size: 40px;
+//           }
+//         }
+//         .__details_measurer_information_card_month__ {
+//           width: 33%;
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: space-around;
+//           align-items: center;
+//         }
+//         .__details_measurer_information_card_day__ {
+//           width: 33%;
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: space-around;
+//           align-items: center;
+//         }
+//       }
+//     }
+//   }
+//   .__details_measurer_consumption__ {
+//     width: 100%;
+//     height: 55%;
+//     background: rgba(214, 214, 214);
+//     background: linear-gradient(
+//       0deg,
+//       rgba(214, 214, 214, 0.944437149859944) 0%,
+//       rgba(245, 244, 244, 1) 1%
+//     );
+//     margin-bottom: 2%;
+//     border-radius: 15px;
+//     .__details_measurer_consumption_tabs__ {
+//       height: 10%;
+//     }
+//   }
+//   .__details_measurer_consumption_variables__ {
+//     width: 100%;
+//     height: 25%;
+//     margin-bottom: 2%;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     .__details_measurer_consumption_variables_CFA__ {
+//       display: flex;
+//       flex-direction: row;
+//       width: 30%;
+//       justify-content: space-between;
+//       .__details_measurer_consumption_variables_CFA_graphic__ {
+//         display: flex;
+//         flex-direction: column;
+//         width: 68%;
+//         .__details_measurer_consumption_variables_CFA_graphic_title__ {
+//           height: 20%;
+//           color: white;
+//           border-radius: 10px 10px 0px 0px;
+//           justify-content: center;
+//           align-items: center;
+//           display: flex;
+//         }
+
+//         .__details_measurer_consumption_variables_CFA_graphic_title__span {
+//           font-size: 1.4rem;
+//           font-weight: bold;
+//           //color: #666D7A
+//         }
+//         .background_CFA {
+//           background-color: #fbab7e;
+//           background-image: linear-gradient(90deg, #f3fb7e, #dfa320);
+//         }
+//         .background_CFB {
+//           /* background-color: #8bc6ec;
+//           background-image: linear-gradient(
+//             90deg,
+//             #8bc6ec 0%,
+//             #9599e2 50%,
+//             #7e87dc 100%
+//           ); */
+//           background-color: #21d4fd;
+//           background-image: linear-gradient(90deg, #21d4fd 0%, #4213dc 100%);
+//         }
+//         .background_CFC {
+//           background-color: #ff7a3b;
+//           background-image: linear-gradient(90deg, #ff7a3b 0%, #ff2525 74%);
+//         }
+
+//         .__details_measurer_consumption_variables_CFA_graphic_image__ {
+//           height: 80%;
+//           background: rgb(214, 214, 214);
+//           background: linear-gradient(
+//             0deg,
+//             rgba(214, 214, 214, 0.944437149859944) 0%,
+//             rgba(245, 244, 244, 1) 1%
+//           );
+//           border-radius: 0px 0px 10px 10px;
+//           display: flex;
+//           justify-content: center;
+//           align-items: center;
+//           flex-direction: column;
+//         }
+//       }
+//       .__details_measurer_consumption_variables_CFA_value__ {
+//         display: flex;
+//         flex-direction: column;
+//         width: 30%;
+//         margin-left: 10px;
+//         justify-content: space-around;
+//         .__details_measurer_consumption_variables_CFA_value_vfa__ {
+//           height: 40%;
+//           border-radius: 10px;
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: center;
+//           align-items: center;
+//           background: rgb(214, 214, 214);
+//           background: linear-gradient(
+//             0deg,
+//             rgba(214, 214, 214, 0.944437149859944) 0%,
+//             rgba(245, 244, 244, 1) 1%
+//           );
+//           margin-bottom: 3%;
+
+//           .__details_measurer_consumption_variables_CFA_value_vfa_title__ {
+//             color: black;
+//             height: 15%;
+//             margin-top: 5px;
+//             font-size: 19px;
+//           }
+//           .__details_measurer_consumption_variables_CFA_value_vfa_value__ {
+//             align-items: center;
+//             justify-content: center;
+//             display: flex;
+//             color: black;
+//             font-size: 20px;
+//             height: 75%;
+//           }
+//         }
+//         .__details_measurer_consumption_variables_CFA_value_fpa__ {
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: center;
+//           align-items: center;
+//           height: 40%;
+//           border-radius: 10px;
+//           background: #4caf50e6;
+//           background: linear-gradient(
+//             0deg,
+//             rgba(214, 214, 214, 0.944437149859944) 0%,
+//             rgba(245, 244, 244, 1) 1%
+//           );
+//           .__details_measurer_consumption_variables_CFA_value_vfa_title__ {
+//             color: black;
+//             height: 15%;
+//             margin-top: 5px;
+//             font-size: 20px;
+//           }
+//           .__details_measurer_consumption_variables_CFA_value_vfa_value__ {
+//             align-items: center;
+//             justify-content: center;
+//             display: flex;
+//             color: black;
+//             font-size: 20px;
+//             height: 75%;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   .__details_measurer_consumption_voltage__ {
+//     width: 100%;
+//     height: 40%;
+//     display: flex;
+//     flex-direction: row;
+//     margin-bottom: 5%;
+//     justify-content: space-between;
+//     .__details_measurer_consumption_voltage_graphic__ {
+//       width: 68%;
+//       border-radius: 15px;
+//       background: rgb(214, 214, 214);
+//       background: linear-gradient(
+//         0deg,
+//         rgba(214, 214, 214, 0.944437149859944) 0%,
+//         rgba(245, 244, 244, 1) 1%
+//       );
+//     }
+//     .__details_measurer_consumption_voltage_variable__ {
+//       margin-left: -30%;
+//       margin-top: 5%;
+//       width: 30%;
+//       border-radius: 15px;
+//       height: 100%;
+//       display: flex;
+//       flex-direction: column;
+//       background: rgb(214, 214, 214);
+//       background: linear-gradient(
+//         0deg,
+//         rgba(214, 214, 214, 0.944437149859944) 0%,
+//         rgba(245, 244, 244, 1) 1%
+//       );
+
+//       .__details_measurer_consumption_voltage_variable_title__ {
+//         height: 15%;
+//         font-size: 20px;
+//         margin-top: 5px;
+//         padding-left: 15px;
+//       }
+//       .__details_measurer_consumption_voltage_variable_value__ {
+//         height: 75%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//       }
+//       table {
+//         width: 80%;
+//       }
+//       td {
+//         padding: 10px;
+//         border: #85c768 2px solid;
+//         border-style: dashed;
+//       }
+//     }
+//   }
+// }
+// .__details_measurer_consumption_graphic__ {
+//   height: 90%;
+//   width: 100%;
+// }
+.calendar_content {
+  margin-top: -5px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 2000px) {
+  .__details_measurer_consumption__ {
+    margin-bottom: 20%;
+    background-color: red;
+  }
+}

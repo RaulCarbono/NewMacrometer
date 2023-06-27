@@ -1,0 +1,172 @@
+._measurers_container_ {
+  overflow: hidden;
+
+  ._measurers_container_header_ {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    background-color: #ddeedf;
+    height: 220px;
+
+    ._measurers_container_logo {
+      display: grid;
+      grid-template-columns: 100%;
+      justify-self: center;
+      align-self: center;
+
+      .__measurers__img {
+        box-shadow: 1px 1px 4px 4px rgba(#929e9e, 0.3);
+        border-radius: 15px;
+      }
+    }
+
+    ._measurers_container_info_ {
+      display: grid;
+      grid-template-rows: 55% 45%;
+
+      ._measurers__info_ {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      ._measurers__filters_ {
+        display: grid;
+        grid-template-columns: 15% 30% 45% 15%;
+        margin: 10px 2% 20px 0%;
+        background-color: #ffffff;
+        border-radius: 15px;
+        box-shadow: 1px 1px 4px 4px rgba(#929e9e, 0.3);
+
+        ._measurer_filter_name_ {
+          justify-self: flex-start;
+          align-self: center;
+          padding-left: 10%;
+          font-size: 20px;
+          color: #474747;
+          font-weight: 600;
+        }
+
+        ._measurer__report_ {
+          display: grid;
+          grid-template-columns: 60% 40%;
+
+          ._measurer_report_option_ {
+            justify-self: center;
+            cursor: pointer;
+            align-self: center;
+            border-radius: 10px;
+            border: 1px solid rgba(#929e9e, 0.3);
+            padding: 5px 25px;
+            font-size: 20px;
+            color: #474747;
+            background-color: rgba(#929e9e, 0.2);
+
+            span {
+              i {
+                padding-right: 5px;
+              }
+            }
+
+            &:hover {
+              background-color: #929e9e;
+              color: #ffffff;
+            }
+          }
+
+          ._measurer_report_icon_ {
+            justify-self: flex-start;
+            align-self: center;
+            font-size: 20px;
+            background-color: rgba(#929e9e, 0.2);
+            color: #ddeedf;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  ._measurers_container_location_ {
+    padding: 20px 2% 0 2%;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+}
+
+@media (max-width: 1600px) {
+  ._measurers_container_ {
+    ._measurers_container_header_ {
+      grid-template-columns: 18% 82%;
+    }
+
+    ._measurers_container_location_ {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@media (max-width: 1380px) {
+  ._measurers_container_ {
+    ._measurers_container_header_ {
+      grid-template-columns: 100%;
+      height: 440px;
+
+      ._measurers_container_info_ {
+        ._measurers__filters_ {
+          margin-left: 20px;
+          grid-template-columns: 20% 25% 55% 5%;
+        }
+      }
+    }
+
+    ._measurers_container_location_ {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  ._measurers_container_ {
+    ._measurers_container_header_ {
+      height: 650px;
+      grid-template-rows: 35% 65%;
+
+      ._measurers_container_info_ {
+        grid-template-rows: 320px 100px;
+
+        ._measurers__filters_ {
+          grid-template-columns: 30% 0% 70% 0%;
+
+          ._measurer__report_ {
+            grid-template-columns: 70% 30%;
+
+            ._measurer_report_option_ {
+              font-size: 15px;
+            }
+          }
+        }
+
+        ._measurers__info_ {
+          grid-template-columns: 100%;
+        }
+      }
+    }
+
+    ._measurers_container_location_ {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  ._measurers_container_ {
+    ._measurers_container_location_ {
+      grid-template-columns: 100%;
+    }
+  }
+}

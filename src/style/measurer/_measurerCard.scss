@@ -1,0 +1,112 @@
+._measurer_container_ {
+  display: grid;
+  height: 320px;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 25% 50% 5% 5%;
+  border: 1px solid rgba(grey, 0.3);
+  box-shadow: 2px 1px 2px 1px rgba(#929e9e, 0.4);
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: rgba(#929e9e, 0.6) 0px 7px 29px 0px;
+  }
+
+  ._measurer_title_container_ {
+    display: grid;
+    border-radius: 5px 5px 0 0;
+    background-color: #e2e3e5;
+
+    ._measurer__title_ {
+      justify-self: center;
+      align-self: center;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      color: #1c1c1c;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+
+  ._heavyduty_title_container_ {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    background-color: #e2e3e5;
+
+    ._heavyduty__title_ {
+      justify-self: center;
+      align-self: center;
+      text-align: center;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      color: #1c1c1c;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    ._heavyduty__switch_ {
+      justify-self: center;
+      align-self: center;
+    }
+  }
+
+  ._measurer_container_kwh_ {
+    display: grid;
+    grid-template-columns: 100%;
+    padding-top: 10px;
+
+    ._measurer_data_container_ {
+      display: grid;
+      margin: 10px 25px;
+      background-color: rgba(#929e9e, 0.1);
+      border: 1px solid rgba(#929e9e, 0.4);
+      grid-template-rows: 70% 30%;
+      border-radius: 5px;
+
+      ._measurer_data_number_ {
+        display: grid;
+        color: rgba(#474747, 1);
+        justify-self: flex-end;
+        padding-right: 15px;
+        align-self: center;
+        font-size: 55px;
+      }
+
+      ._measurer_data_kwh_ {
+        display: grid;
+        justify-self: flex-end;
+        padding-right: 15px;
+        align-self: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+    }
+  }
+
+  ._measurer_container_watts_ {
+    display: grid;
+    justify-self: center;
+    align-self: center;
+  }
+
+  ._measurer_container_range_ {
+    display: grid;
+    margin-top: -40px;
+    grid-template-columns: repeat(2, 1fr);
+
+    ._measurer__range_ {
+      justify-self: center;
+      align-self: flex-start;
+      font-size: 10px;
+    }
+  }
+
+  ._measurer_container_value_ {
+    display: grid;
+    font-size: 25px;
+    justify-self: center;
+    align-self: flex-end;
+  }
+}
