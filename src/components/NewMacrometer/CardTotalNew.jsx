@@ -14,7 +14,7 @@ export default function CardTotalNew({ serial }) {
   };
 
   const listMetter = [
-    "Fhz",
+    "FHz",
     "NC",
     "Ah",
     "TExKVarh",
@@ -24,6 +24,7 @@ export default function CardTotalNew({ serial }) {
     "TKWh",
     "VFBFC",
     "VFAFB",
+    " TSE",
   ];
 
   const [currentElectricMeasure, setCurrentElectricMeasure] = React.useState(1);
@@ -39,8 +40,6 @@ export default function CardTotalNew({ serial }) {
     variables: serial,
     fetchPolicy: "no-cache",
   });
-
-  console.log(data);
 
   const prePage = () => {
     if (currentElectricMeasure !== 1) {
@@ -59,11 +58,16 @@ export default function CardTotalNew({ serial }) {
   };
 
   const handleNameValue = (e) => {
-    const name = e.target.outerText;
-    const arrayValue = data.setDataVariables(
-      `${data.getMeterHistoryVariables[0]}.${name}`
-    );
+    let name = e.target.outerText;
+    console.log(name);
+    const arrayValue = data.getMeterHistoryVariables[0];
+    for (const key in arrayValue) {
+      if (key === name) {
+        setDataVariables(arrayValue[key]);
+      }
+    }
   };
+
   console.log(dataVariables);
 
   // useEffect(() => {
@@ -80,61 +84,33 @@ export default function CardTotalNew({ serial }) {
   console.log(data);
 
   return (
-    <div className="__details_measurer_consumption_voltage_variable__">
-      <div className="__details_measurer_information_card__">
-        <div className="__details_measurer_information_card_title__">
-          <strong>LECTURA ACTUAL</strong>
-        </div>
-        <div className="__details_measurer_information_card_container__">
-          <div className="__details_measurer_information_card_now__">
-            <span>{dataVariables}</span>
-          </div>
-        </div>
+    <div className="_carTotalNew_ ">
+      <div className="__details_measurer_information_card_title__ background_CFT  background_CFA">
+        <strong>LECTURA ACTUAL</strong>
       </div>
       <div className="__details_measurer_consumption_voltage_variable_value__">
-        <div className="container_value">
-          <Tooltip title="Frecuencia" placement="top" arrow>
-            <div className="container_value_button" onClick={handleNameValue}>
-              {recordsMeasures[0]}
-            </div>
-          </Tooltip>
-          <Tooltip title="Corriente en el neutro" placement="top" arrow>
-            <div onClick={handleNameValue}>{recordsMeasures[1]}</div>
-          </Tooltip>
+        <span>{dataVariables}</span>
+      </div>
+      <div className="container_values_songs ">
+        <ArrowBackIcon className="button_back" onClick={prePage} />
 
-          <Tooltip title="Amperios hora" placement="top" arrow>
-            <div onClick={handleNameValue}>{recordsMeasures[2]}</div>
-          </Tooltip>
+        <Tooltip title="Frecuencia" placement="top" arrow>
+          <div className="container_value_button" onClick={handleNameValue}>
+            {recordsMeasures[0]}
+          </div>
+        </Tooltip>
+        <Tooltip title="Corriente en el neutro" placement="top" arrow>
+          <div onClick={handleNameValue}>{recordsMeasures[1]}</div>
+        </Tooltip>
 
-          <Tooltip title="Reactiva exportada total" placement="top" arrow>
-            <div onClick={handleNameValue}>{recordsMeasures[3]}</div>
-          </Tooltip>
-        </div>
-        {/* <table>
-          <tr>
-            <Tooltip title="Activa exportada total" placement="top" arrow>
-              <td>{recordsMeasures[3]}</td>
-            </Tooltip>
-            <Tooltip title="Reactiva importada" placement="top" arrow>
-              <td>{listMetter[5]}</td>
-            </Tooltip>
-          </tr>
-          <tr>
-            <Tooltip title="Activa importada" placement="top" arrow>
-              <td>{listMetter[6]}</td>
-            </Tooltip>
-            <Tooltip title="Kilovatio hora total" placement="top" arrow>
-              <td>{listMetter[7]}</td>
-            </Tooltip>
-          </tr>
-        </table> */}
-        <button onClick={prePage}>
-          {" "}
-          <ArrowBackIcon onClick={prePage} />
-        </button>
-        <button onClick={nextPage}>
-          <ArrowForwardIcon onClick={nextPage} />
-        </button>
+        <Tooltip title="Amperios hora" placement="top" arrow>
+          <div onClick={handleNameValue}>{recordsMeasures[2]}</div>
+        </Tooltip>
+
+        <Tooltip title="Reactiva exportada total" placement="top" arrow>
+          <div onClick={handleNameValue}>{recordsMeasures[3]}</div>
+        </Tooltip>
+        <ArrowForwardIcon onClick={nextPage} />
       </div>
     </div>
   );

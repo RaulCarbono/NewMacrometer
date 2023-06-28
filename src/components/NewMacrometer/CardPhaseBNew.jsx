@@ -59,7 +59,7 @@ export const CardPhaseBNew = ({ serial }) => {
           <SemiCircleProgressBar
             strokeWidth={25}
             percentage={`${percentageValue(medidaString)}`}
-            background="rgba(70, 139, 224, 0.3)"
+            background="#F2F2F2"
             // stroke="#8bc6ec"
             stroke="#468BE0"
           />

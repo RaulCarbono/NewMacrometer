@@ -63,7 +63,7 @@ export const CardPhaseANew = ({ serial }) => {
         <div className="__details_measurer_consumption_variables_CFA_graphic_image__">
           <SemiCircleProgressBar
             percentage={`${percentageValue(medidaString)}`}
-            background="rgba(247, 206, 104, 0.3)"
+            background="#F2F2F2"
             strokeWidth={25}
             stroke="#f7ce68"
           />

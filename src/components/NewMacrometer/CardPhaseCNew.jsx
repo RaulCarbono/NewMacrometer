@@ -64,7 +64,7 @@ export const CardPhaseCNew = ({ serial }) => {
             percentage={`${percentageValue(medidaString)}`}
             strokeWidth={25}
             stroke="#ff2525"
-            background="rgba(255, 37, 37, 0.3)"
+            background="#F2F2F2"
           />
           <span>{medidas?.PAFC} Watts</span>
         </div>

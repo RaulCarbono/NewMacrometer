@@ -59,9 +59,11 @@
             font-size: 20px;
             color: #474747;
             background-color: rgba(#929e9e, 0.2);
+            font-family: "Quicksand", sans-serif;
 
             span {
               i {
+                font-family: "Quicksand", sans-serif;
                 padding-right: 5px;
               }
             }
@@ -81,6 +83,7 @@
             padding: 5px 15px;
             border-radius: 5px;
             cursor: pointer;
+            font-family: "Quicksand", sans-serif;
           }
         }
       }
@@ -95,6 +98,7 @@
     grid-template-columns: repeat(5, 1fr);
     row-gap: 20px;
     column-gap: 20px;
+    font-family: "Quicksand", sans-serif;
   }
 }
 
