@@ -9,12 +9,12 @@ import { CardPhaseCNew } from "./NewMacrometer/CardPhaseCNew";
 import CardTotalNew from "./NewMacrometer/CardTotalNew";
 import { useQuery } from "@apollo/client";
 import { GET_METTERS } from "./controllers/measurerController";
+import TabGraphicVAV from "./MeasurerDetails/TabGrapihic";
 
 //New Components Design
 
 //components
 
-// import TabGraphic from "./MeasurerDetails/TabGraphic";
 // import TabGraphicVAV from "./MeasurerDetails/TabGraphicVAV";
 
 const MeasurerDetails = () => {
@@ -52,7 +52,9 @@ const MeasurerDetails = () => {
             lg={12}
             xl={12}
             sx={{ height: "550px" }}
-          ></Grid>
+          >
+            <TabGraphicVAV serial={serial} />
+          </Grid>
         </Grid>
       </Box>
     </Fragment>

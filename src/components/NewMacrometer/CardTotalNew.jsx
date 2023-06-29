@@ -35,6 +35,7 @@ export default function CardTotalNew({ serial }) {
   const totalPages = Math.ceil(listMetter.length / recordsPerMeasure);
   const numbers = [...Array(totalPages + 1).keys()].slice(1);
   const [dataVariables, setDataVariables] = useState();
+  const [dataName, setDataName] = useState();
 
   const { loading, error, data } = useQuery(GET_METTERS_HISTORY_SERVICES, {
     variables: serial,
@@ -59,7 +60,7 @@ export default function CardTotalNew({ serial }) {
 
   const handleNameValue = (e) => {
     let name = e.target.outerText;
-    console.log(name);
+    setDataName(name);
     const arrayValue = data.getMeterHistoryVariables[0];
     for (const key in arrayValue) {
       if (key === name) {
@@ -86,7 +87,7 @@ export default function CardTotalNew({ serial }) {
   return (
     <div className="_carTotalNew_ ">
       <div className="__details_measurer_information_card_title__ background_CFT  background_CFA">
-        <strong>LECTURA ACTUAL</strong>
+        <strong>LECTURA ACTUAL {dataName}</strong>
       </div>
       <div className="__details_measurer_consumption_voltage_variable_value__">
         <span>{dataVariables}</span>

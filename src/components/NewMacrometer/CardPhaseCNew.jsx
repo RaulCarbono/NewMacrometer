@@ -66,7 +66,9 @@ export const CardPhaseCNew = ({ serial }) => {
             stroke="#ff2525"
             background="#F2F2F2"
           />
-          <span>{medidas?.PAFC} Watts</span>
+          <span>
+            <strong>{medidas?.PAFC}</strong> Watts
+          </span>
         </div>
       </div>
       <div className="__details_measurer_consumption_variables_CFA_value__">
@@ -75,11 +77,10 @@ export const CardPhaseCNew = ({ serial }) => {
         <strong>Voltaje</strong>
       </div> */}
           <div className="__details_measurer_consumption_variables_CFA_value_vfa_value__">
-            <Tooltip title="Voltaje" placement="top" arrow>
-              <strong>
-                <span> {medidas?.VFC}</span>
-              </strong>
-            </Tooltip>
+            <span className="container_voltage_number">
+              <strong>{medidas?.VFC}</strong>
+              <span className="container_voltaje">Voltaje</span>
+            </span>
           </div>
         </div>
         <div className="__details_measurer_consumption_variables_CFA_value_vfa__ border_color_CFC">
@@ -87,11 +88,11 @@ export const CardPhaseCNew = ({ serial }) => {
         <strong>Corriente</strong>
       </div> */}
           <div className="__details_measurer_consumption_variables_CFA_value_vfa_value__">
-            <Tooltip title="Amperaje" placement="top" arrow>
-              <strong>
-                <span> {medidas?.CFC}</span>
-              </strong>
-            </Tooltip>
+            <span className="container_voltage_number">
+              {" "}
+              <strong>{medidas?.CFC}</strong>
+              <span className="container_voltaje">Amperaje</span>
+            </span>
           </div>
         </div>
         <div className="__details_measurer_consumption_variables_CFA_value_fpa__ border_color_CFC">
@@ -99,11 +100,11 @@ export const CardPhaseCNew = ({ serial }) => {
         <strong>Factor P.</strong>
       </div> */}
           <div className="__details_measurer_consumption_variables_CFA_value_vfa_value__">
-            <Tooltip title="Factor de Potencia" placement="top" arrow>
-              <strong>
-                <span> {medidas?.FPFC}</span>
-              </strong>
-            </Tooltip>
+            <span className="container_voltage_number">
+              {" "}
+              <strong>{medidas?.FPFC}</strong>
+              <span className="container_voltaje">Factor P</span>
+            </span>
           </div>
         </div>
       </div>

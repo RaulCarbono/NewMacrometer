@@ -10,11 +10,6 @@ export const GET_METTERS = gql`
   }
 `;
 
-// export const GET_ONE_VARIABLE = gql`
-//     query(serial:string
-//         CFA:string)
-// `;
-
 export const GET_METTERS_HISTORY = gql`
   query GetMeterHistory($serial: String!) {
     getMeterHistory(serial: $serial) {
@@ -50,6 +45,21 @@ export const GET_METTERS_HISTORY_SERVICES = gql`
       VFAFB
       VFCFA
       TSE
+    }
+  }
+`;
+
+export const GET_TWELVE_HOUR_VOLTAGE = gql`
+  query GetTwelveHourVoltage($serial: String!, $dia: String!) {
+    getTwelveHourVoltage(serial: $serial, Dia: $dia) {
+      show_data {
+        name
+        color
+        data {
+          x
+          y
+        }
+      }
     }
   }
 `;

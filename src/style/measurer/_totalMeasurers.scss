@@ -1,7 +1,7 @@
 ._carTotalNew_ {
   display: grid;
   width: 100%;
-  height: 220px;
+  height: 180px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   font-family: "Quicksand", sans-serif;
@@ -15,26 +15,28 @@
     font-size: 18px;
     justify-items: center;
     width: 100%;
-    height: 44px;
+    height: 37px;
   }
   .__details_measurer_consumption_voltage_variable_value__ {
     display: grid;
+    align-items: initial;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 4.5rem;
     font-family: "Quicksand", sans-serif;
   }
 
   .background_CFA {
     background-color: #47a23f;
-    background-image: linear-gradient(90deg, #47a23f, #69d170);
+    background-image: linear-gradient(90deg, #808080, #b3b3b3);
   }
 
   .container_values_songs {
     display: flex;
     width: 100%;
-    flex-wrap: nowrap;
+
+    flex-wrap: wrap;
     flex-direction: row;
-    gap: 20px;
+    gap: 5px;
     justify-content: center;
   }
 }

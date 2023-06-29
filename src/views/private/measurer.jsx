@@ -12,19 +12,24 @@ import {
   Toolbar,
 } from "@material-ui/core";
 
-const useStyle = makeStyles((theme) => ({
-  colorAppbar: {
-    backgroundColor: "#47A23F",
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: "#3f9948",
+    position: "fixed",
+  },
+  title: {
+    marginLeft: theme.spacing(2),
+    flex: 1,
   },
 }));
 
 export const Measurer = () => {
-  const classes = useStyle();
+  const classes = useStyles();
   return (
     <div>
       {" "}
       <Dialog fullScreen open={true} onClose={""}>
-        <AppBar sx={{ color: "#47A23F" }}>
+        <AppBar className={classes.appBar}>
           <Toolbar>
             <IconButton
               edge="start"

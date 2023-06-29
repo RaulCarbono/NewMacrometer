@@ -30,7 +30,7 @@ export const CardPhaseANew = ({ serial }) => {
   const medidasInt = parseInt(medidas?.PAFA);
 
   const medidaString = String(medidasInt);
-
+  console.log(serial);
   const percentageValue = (value) => {
     if (value?.length < 2) {
       return (parseInt(value) / 10) * 100;
@@ -52,6 +52,7 @@ export const CardPhaseANew = ({ serial }) => {
       return (parseInt(value) / 1000000000) * 100;
     }
   };
+
   return (
     <div className="_cardMeasurers_container_">
       <div className="__details_measurer_consumption_variables_CFA_graphic__">
@@ -63,37 +64,33 @@ export const CardPhaseANew = ({ serial }) => {
         <div className="__details_measurer_consumption_variables_CFA_graphic_image__">
           <SemiCircleProgressBar
             percentage={`${percentageValue(medidaString)}`}
-            background="#F2F2F2"
+            background="#F2F2F2 "
             strokeWidth={25}
             stroke="#f7ce68"
           />
-          <span>Watts {medidas?.PAFA} </span>
+
+          <span className="container_watts">
+            <strong>{medidas?.PAFA}</strong> Watts
+          </span>
         </div>
       </div>
       <div className="__details_measurer_consumption_variables_CFA_value__">
         <div className=" __details_measurer_consumption_variables_CFA_value_vfa__ border_color_CFA">
           {" "}
-          {/* <div className="__details_measurer_consumption_variables_CFA_value_vfa_title__">
-            <strong>Voltaje</strong>
-          </div> */}
           <div className="__details_measurer_consumption_variables_CFA_value_vfa_value__">
-            <span>
-              <Tooltip title="Voltaje" placement="top" arrow>
-                <strong>{medidas?.VFA}</strong>
-              </Tooltip>
+            <span className="container_voltage_number">
+              <strong>{medidas?.VFA}</strong>
+              <span className="container_voltaje">Voltaje</span>
             </span>
           </div>
         </div>
         <div className="__details_measurer_consumption_variables_CFA_value_vfa__ border_color_CFA">
-          {/* <div className="__details_measurer_consumption_variables_CFA_value_vfa_title__">
-            <strong>Corriente</strong>
-          </div> */}
           <div className="__details_measurer_consumption_variables_CFA_value_vfa_value__">
-            <Tooltip title="Amperaje" placement="top" arrow>
-              <strong>
-                <span>{medidas?.CFA}</span>
-              </strong>
-            </Tooltip>
+            <span className="container_voltage_number">
+              {" "}
+              <strong>{medidas?.CFA}</strong>
+              <span className="container_voltaje">Amperaje</span>
+            </span>
           </div>
         </div>
         <div className="__details_measurer_consumption_variables_CFA_value_fpa__ border_color_CFA">
@@ -102,11 +99,11 @@ export const CardPhaseANew = ({ serial }) => {
             <strong>Factor P.</strong>
           </div> */}
           <div className="__details_measurer_consumption_variables_CFA_value_vfa_value__">
-            <Tooltip title="Factor de Potencia" placement="top" arrow>
-              <strong>
-                <span>{medidas?.FPFA}</span>
-              </strong>
-            </Tooltip>
+            <span className="container_voltage_number">
+              {" "}
+              <strong>{medidas?.FPFA}</strong>
+              <span className="container_voltaje">Factor P</span>
+            </span>
           </div>
         </div>
       </div>
