@@ -4,10 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import SemiCircleProgressBar from "react-progressbar-semicircle";
 import Tooltip from "@mui/material/Tooltip";
 import { useQuery } from "@apollo/client";
-import {
-  GET_METTERS_HISTORY,
-  GET_METTERS_HISTORY_SERVICES,
-} from "../controllers/measurerController";
+import { GET_METTERS_HISTORY } from "../controllers/measurerController";
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;

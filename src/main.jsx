@@ -11,8 +11,11 @@ import {
 // import { ApolloServer } from "@apollo/server";
 // import { startStandaloneServer } from "@apollo/server/standalone";
 
+const clientUri = "http://10.0.0.139:3000/graphql";
+const serverUri = "https://microservicehsemeasurement.onrender.com/graphql";
+
 const client = new ApolloClient({
-  uri: "https://microservicehsemeasurement.onrender.com/graphql",
+  uri: serverUri,
   cache: new InMemoryCache(),
 });
 

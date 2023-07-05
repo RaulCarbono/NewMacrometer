@@ -32,7 +32,6 @@ export const GET_METTERS_HISTORY = gql`
 export const GET_METTERS_HISTORY_SERVICES = gql`
   query GetMeterHistoryVariables($serial: String!) {
     getMeterHistoryVariables(serial: $serial) {
-      fecha
       FHz
       NC
       Ah
@@ -50,16 +49,25 @@ export const GET_METTERS_HISTORY_SERVICES = gql`
 `;
 
 export const GET_TWELVE_HOUR_VOLTAGE = gql`
-  query GetTwelveHourVoltage($serial: String!, $dia: String!) {
-    getTwelveHourVoltage(serial: $serial, Dia: $dia) {
-      show_data {
-        name
-        color
-        data {
-          x
-          y
-        }
-      }
-    }
+  query Query($serial: String!, $day: String!) {
+    getTwelveHourVoltage(serial: $serial, Day: $day)
+  }
+`;
+
+export const GET_TWELVE_HOUR_WATTS = gql`
+  query Query($serial: String!, $day: String!) {
+    getTwelveHourWatt(serial: $serial, Day: $day)
+  }
+`;
+
+export const GET_TWELVE_HOUR_CURRENT = gql`
+  query Query($serial: String!, $day: String!) {
+    getTwelveHourCurrent(serial: $serial, Day: $day)
+  }
+`;
+
+export const GET_TWELVE_HOUR_POWER_FACTOR = gql`
+  query Query($serial: String!, $day: String!) {
+    getTwelveHourPowerFactor(serial: $serial, Day: $day)
   }
 `;

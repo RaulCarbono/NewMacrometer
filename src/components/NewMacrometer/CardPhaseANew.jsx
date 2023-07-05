@@ -30,7 +30,7 @@ export const CardPhaseANew = ({ serial }) => {
   const medidasInt = parseInt(medidas?.PAFA);
 
   const medidaString = String(medidasInt);
-  console.log(serial);
+
   const percentageValue = (value) => {
     if (value?.length < 2) {
       return (parseInt(value) / 10) * 100;

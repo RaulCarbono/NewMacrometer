@@ -1,17 +1,18 @@
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import { useQuery } from "@apollo/client";
-import { GET_TWELVE_HOUR_VOLTAGE } from "../controllers/measurerController";
+import { GET_TWELVE_HOUR_POWER_FACTOR } from "../controllers/measurerController";
 
-export const GraphVoltage = ({ Dia }) => {
-  const { data, loading } = useQuery(GET_TWELVE_HOUR_VOLTAGE, {
+export const GraphPowerFactor = ({ previusDay, Dia, nextDay, serialS }) => {
+  const { data, loading } = useQuery(GET_TWELVE_HOUR_POWER_FACTOR, {
     variables: {
       serial: "22551432",
       day: "05/07/23",
     },
     fetchPolicy: "no-cache",
   });
-  console.log(Dia);
+
+  console.log(data);
 
   return (
     <div>
@@ -26,7 +27,7 @@ export const GraphVoltage = ({ Dia }) => {
             },
           },
           title: {
-            text: "Voltaje últimas 24 horas",
+            text: "Factor de Potencia últimas 24 horas",
             align: "left",
           },
           subtitle: {
@@ -36,8 +37,8 @@ export const GraphVoltage = ({ Dia }) => {
           xAxis: {
             type: "datetime",
             tickInterval: 3600000,
-            min: data?.getTwelveHourVoltage.starpoint,
-            max: data?.getTwelveHourVoltage.endpoint,
+            min: data?.getTwelveHourPowerFactor.starpoint,
+            max: data?.getTwelveHourPowerFactor.endpoint,
             labels: {
               format: "{value:%H:%M}",
             },
@@ -45,11 +46,11 @@ export const GraphVoltage = ({ Dia }) => {
           yAxis: {
             //min: 122,
             title: {
-              text: "Voltios",
+              text: "Factor de Potencia",
             },
           },
           tooltip: {
-            valueSuffix: " V",
+            valueSuffix: " FP",
           },
           plotOptions: {
             spline: {
@@ -67,7 +68,7 @@ export const GraphVoltage = ({ Dia }) => {
           time: {
             timezoneOffset: 300,
           },
-          series: data?.getTwelveHourVoltage.show_data,
+          series: data?.getTwelveHourPowerFactor.show_data,
           navigation: {
             menuItemStyle: {
               fontSize: "10px",

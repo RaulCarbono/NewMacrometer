@@ -20,6 +20,7 @@
   .__details_measurer_consumption_voltage_variable_value__ {
     display: grid;
     align-items: initial;
+    color: #47a23f;
     justify-content: center;
     font-size: 4.5rem;
     font-family: "Quicksand", sans-serif;
@@ -37,6 +38,18 @@
     flex-wrap: wrap;
     flex-direction: row;
     gap: 5px;
-    justify-content: center;
+    justify-content: space-evenly;
+
+    .container_value_button {
+      color: rgb(3, 160, 0);
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .container_value_button_normal {
+      color: #808080;
+      cursor: pointer;
+      font-weight: bold;
+    }
   }
 }

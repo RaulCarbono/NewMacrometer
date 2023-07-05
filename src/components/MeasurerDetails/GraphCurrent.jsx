@@ -1,17 +1,16 @@
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import { useQuery } from "@apollo/client";
-import { GET_TWELVE_HOUR_VOLTAGE } from "../controllers/measurerController";
+import { GET_TWELVE_HOUR_CURRENT } from "../controllers/measurerController";
 
-export const GraphVoltage = ({ Dia }) => {
-  const { data, loading } = useQuery(GET_TWELVE_HOUR_VOLTAGE, {
+export const GraphCurrent = () => {
+  const { data, loading } = useQuery(GET_TWELVE_HOUR_CURRENT, {
     variables: {
       serial: "22551432",
       day: "05/07/23",
     },
     fetchPolicy: "no-cache",
   });
-  console.log(Dia);
 
   return (
     <div>
@@ -26,7 +25,7 @@ export const GraphVoltage = ({ Dia }) => {
             },
           },
           title: {
-            text: "Voltaje últimas 24 horas",
+            text: "Amperaje últimas 24 horas",
             align: "left",
           },
           subtitle: {
@@ -36,8 +35,8 @@ export const GraphVoltage = ({ Dia }) => {
           xAxis: {
             type: "datetime",
             tickInterval: 3600000,
-            min: data?.getTwelveHourVoltage.starpoint,
-            max: data?.getTwelveHourVoltage.endpoint,
+            min: data?.getTwelveHourCurrent.starpoint,
+            max: data?.getTwelveHourCurrent.endpoint,
             labels: {
               format: "{value:%H:%M}",
             },
@@ -45,11 +44,11 @@ export const GraphVoltage = ({ Dia }) => {
           yAxis: {
             //min: 122,
             title: {
-              text: "Voltios",
+              text: "Amperios",
             },
           },
           tooltip: {
-            valueSuffix: " V",
+            valueSuffix: " A",
           },
           plotOptions: {
             spline: {
@@ -67,7 +66,7 @@ export const GraphVoltage = ({ Dia }) => {
           time: {
             timezoneOffset: 300,
           },
-          series: data?.getTwelveHourVoltage.show_data,
+          series: data?.getTwelveHourCurrent.show_data,
           navigation: {
             menuItemStyle: {
               fontSize: "10px",
