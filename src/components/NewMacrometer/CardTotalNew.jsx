@@ -7,6 +7,7 @@ import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 
 import { GET_METTERS_HISTORY_SERVICES } from "../controllers/measurerController";
 import { useQuery } from "@apollo/client";
+import { each } from "highcharts";
 export default function CardTotalNew({ serial }) {
   const opcionesFormateo = {
     minimumFractionDigits: 1, // Fijar el número mínimo de dígitos fraccionarios en 1
@@ -41,14 +42,6 @@ export default function CardTotalNew({ serial }) {
     TSE: "Total energía sistema",
   };
 
-  const [currentElectricMeasure, setCurrentElectricMeasure] = React.useState(1);
-  const recordsPerMeasure = 4;
-  const lastIndex = currentElectricMeasure * recordsPerMeasure;
-  const firstIndex = lastIndex - recordsPerMeasure;
-  const recordsMeasures = listMetter.slice(firstIndex, lastIndex);
-  const totalPages = Math.ceil(listMetter.length / recordsPerMeasure);
-  const numbers = [...Array(totalPages + 1).keys()].slice(4);
-
   const { loading, error, data } = useQuery(GET_METTERS_HISTORY_SERVICES, {
     variables: serial,
     fetchPolicy: "no-cache",
@@ -56,21 +49,28 @@ export default function CardTotalNew({ serial }) {
 
   const [dataVariables, setDataVariables] = useState();
   const [dataName, setDataName] = useState("");
-  const [variableAbre, setVariableAbre] = useState("");
+  const [variableAbre, setVariableAbre] = useState();
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const prePage = () => {
-    if (currentElectricMeasure !== 1) {
-      setCurrentElectricMeasure(currentElectricMeasure - 1);
-    }
-  };
-
-  const changeCurrentPage = (id) => {
-    setCurrentElectricMeasure(id);
-  };
-
-  const nextPage = () => {
-    if (currentElectricMeasure !== totalPages) {
-      setCurrentElectricMeasure(currentElectricMeasure + 1);
+  const selectNewVariable = (e, index, listMetter, next = true) => {
+    let name = e.target.outerText;
+    setVariableAbre(name);
+    const arrayValue = data.getMeterHistoryVariables[0];
+    const condition = next
+      ? selectedIndex < listMetter.length - 1
+      : selectedIndex > 0;
+    const nextIndex = next
+      ? condition
+        ? selectedIndex + 1
+        : 0
+      : condition
+      ? selectedIndex - 1
+      : listMetter.length - 1;
+    for (const nextIndex in arrayValue) {
+      if (nextIndex === name) {
+        setDataVariables(arrayValue[nextIndex]);
+        setDataName(listMetterAlias[nextIndex]);
+      }
     }
   };
 
@@ -86,8 +86,12 @@ export default function CardTotalNew({ serial }) {
     }
   };
 
-  let comparation = recordsMeasures[2] === variableAbre;
-  console.log(comparation);
+  const previus = () => {
+    selectNewVariable(selectedIndex, listMetter, false);
+  };
+  const next = () => {
+    selectNewVariable(selectedIndex, listMetter);
+  };
 
   return (
     <div className="_carTotalNew_ ">
@@ -105,66 +109,49 @@ export default function CardTotalNew({ serial }) {
             color: "#B3B3B3",
           }}
           className="button_back"
-          onClick={prePage}
+          onClick={previus}
         />
 
-        <Tooltip placement="top" arrow>
-          <div
-            className={`${
-              recordsMeasures[0] === variableAbre
-                ? "container_value_button"
-                : "container_value_button_normal"
-            } `}
-            onClick={handleNameValue}
-          >
-            {recordsMeasures[0]}
-          </div>
-        </Tooltip>
-        <Tooltip placement="top" arrow>
-          <div
-            className={`${
-              recordsMeasures[1] === variableAbre
-                ? "container_value_button"
-                : "container_value_button_normal"
-            } `}
-            onClick={handleNameValue}
-          >
-            {recordsMeasures[1]}
-          </div>
-        </Tooltip>
+        <div
+          className={`${
+            listMetter[0] === variableAbre
+              ? "container_value_button"
+              : "container_value_button_normal"
+          } `}
+          onClick={handleNameValue}
+        >
+          {listMetter[0]}
+        </div>
 
-        <Tooltip placement="top" arrow>
-          <div
-            className={`${
-              recordsMeasures[2] === variableAbre
-                ? "container_value_button"
-                : "container_value_button_normal"
-            } `}
-            onClick={handleNameValue}
-          >
-            {recordsMeasures[2]}
-          </div>
-        </Tooltip>
+        <div
+          className={`${
+            listMetter[1] === variableAbre
+              ? "container_value_button"
+              : "container_value_button_normal"
+          } `}
+          onClick={handleNameValue}
+        >
+          {listMetter[1]}
+        </div>
 
-        <Tooltip placement="top" arrow>
-          <div
-            className={`${
-              recordsMeasures[3] === variableAbre
-                ? "container_value_button"
-                : "container_value_button_normal"
-            } `}
-            onClick={handleNameValue}
-          >
-            {recordsMeasures[3]}
-          </div>
-        </Tooltip>
+        <div
+          className={`${
+            listMetter[2] === variableAbre
+              ? "container_value_button"
+              : "container_value_button_normal"
+          } `}
+          onClick={handleNameValue}
+        >
+          {listMetter[2]}
+        </div>
+
         <ArrowDropDownCircleIcon
           sx={{
             display: "flex",
             transform: "rotate(270deg)",
             color: "#B3B3B3",
           }}
-          onClick={nextPage}
+          onClick={next}
         />
       </div>
     </div>

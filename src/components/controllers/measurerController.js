@@ -71,3 +71,9 @@ export const GET_TWELVE_HOUR_POWER_FACTOR = gql`
     getTwelveHourPowerFactor(serial: $serial, Day: $day)
   }
 `;
+
+export const GET_HISTORY = gql`
+  query Query($serial: String!, $day: String!) {
+    getConsumptionHistory(serial: $serial, Day: $day)
+  }
+`;

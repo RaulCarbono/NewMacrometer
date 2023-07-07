@@ -7,7 +7,7 @@ export const GraphVoltage = ({ Dia }) => {
   const { data, loading } = useQuery(GET_TWELVE_HOUR_VOLTAGE, {
     variables: {
       serial: "22551432",
-      day: "05/07/23",
+      day: "07/07/23",
     },
     fetchPolicy: "no-cache",
   });

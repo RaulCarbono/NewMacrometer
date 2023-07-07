@@ -12,7 +12,7 @@
     border-top-right-radius: 10px;
     display: grid;
     color: white;
-    font-size: 18px;
+    font-size: 15px;
     justify-items: center;
     width: 100%;
     height: 37px;
@@ -22,7 +22,7 @@
     align-items: initial;
     color: #47a23f;
     justify-content: center;
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-family: "Quicksand", sans-serif;
   }
 
@@ -41,9 +41,16 @@
     justify-content: space-evenly;
 
     .container_value_button {
-      color: rgb(3, 160, 0);
+      color: rgb(24, 19, 19);
       cursor: pointer;
       font-weight: bold;
+      transition: box-shadow 0.1s;
+      transform: translateY(300deg);
+      font-size: 22px;
+      // background-color: lightskyblue;
+      // border-radius: 50%;
+      text-align: center;
+      justify-self: center;
     }
 
     .container_value_button_normal {
