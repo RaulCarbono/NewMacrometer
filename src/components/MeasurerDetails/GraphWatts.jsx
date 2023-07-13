@@ -1,15 +1,15 @@
-import Highcharts from "highcharts/highstock";
-import HighchartsReact from "highcharts-react-official";
-import { useQuery } from "@apollo/client";
-import { GET_TWELVE_HOUR_WATTS } from "../controllers/measurerController";
+import Highcharts from 'highcharts/highstock';
+import HighchartsReact from 'highcharts-react-official';
+import { useQuery } from '@apollo/client';
+import { GET_TWELVE_HOUR_WATTS } from '../controllers/measurerController';
 
-export const GraphWatts = () => {
-  const { data, loading } = useQuery(GET_TWELVE_HOUR_WATTS, {
+export const GraphWatts = ({ Dia }) => {
+  const { data } = useQuery(GET_TWELVE_HOUR_WATTS, {
     variables: {
-      serial: "22551432",
-      day: "07/07/23",
+      serial: '22551432',
+      day: Dia,
     },
-    fetchPolicy: "no-cache",
+    fetchPolicy: 'no-cache',
   });
 
   return (
@@ -18,37 +18,37 @@ export const GraphWatts = () => {
         highcharts={Highcharts}
         options={{
           chart: {
-            type: "spline",
+            type: 'spline',
             scrollablePlotArea: {
               minWidth: 600,
               scrollPositionX: 1,
             },
           },
           title: {
-            text: "Watts últimas 24 horas",
-            align: "left",
+            text: 'Watts últimas 24 horas',
+            align: 'left',
           },
           subtitle: {
-            text: "",
-            align: "left",
+            text: '',
+            align: 'left',
           },
           xAxis: {
-            type: "datetime",
+            type: 'datetime',
             tickInterval: 3600000,
             min: data?.getTwelveHourWatt.starpoint,
             max: data?.getTwelveHourWatt.endpoint,
             labels: {
-              format: "{value:%H:%M}",
+              format: '{value:%H:%M}',
             },
           },
           yAxis: {
             //min: 122,
             title: {
-              text: "Watts",
+              text: 'Watts',
             },
           },
           tooltip: {
-            valueSuffix: " W",
+            valueSuffix: ' W',
           },
           plotOptions: {
             spline: {
@@ -69,7 +69,7 @@ export const GraphWatts = () => {
           series: data?.getTwelveHourWatt.show_data,
           navigation: {
             menuItemStyle: {
-              fontSize: "10px",
+              fontSize: '10px',
             },
           },
         }}

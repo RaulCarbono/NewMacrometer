@@ -1,15 +1,15 @@
-import Highcharts from "highcharts/highstock";
-import HighchartsReact from "highcharts-react-official";
-import { useQuery } from "@apollo/client";
-import { GET_TWELVE_HOUR_CURRENT } from "../controllers/measurerController";
+import Highcharts from 'highcharts/highstock';
+import HighchartsReact from 'highcharts-react-official';
+import { useQuery } from '@apollo/client';
+import { GET_TWELVE_HOUR_CURRENT } from '../controllers/measurerController';
 
-export const GraphCurrent = () => {
-  const { data, loading } = useQuery(GET_TWELVE_HOUR_CURRENT, {
+export const GraphCurrent = (Dia) => {
+  const { data } = useQuery(GET_TWELVE_HOUR_CURRENT, {
     variables: {
-      serial: "22551432",
-      day: "07/07/23",
+      serial: '22551432',
+      day: Dia.Dia,
     },
-    fetchPolicy: "no-cache",
+    fetchPolicy: 'no-cache',
   });
 
   return (
@@ -18,37 +18,37 @@ export const GraphCurrent = () => {
         highcharts={Highcharts}
         options={{
           chart: {
-            type: "spline",
+            type: 'spline',
             scrollablePlotArea: {
               minWidth: 600,
               scrollPositionX: 1,
             },
           },
           title: {
-            text: "Amperaje últimas 24 horas",
-            align: "left",
+            text: 'Amperaje últimas 24 horas',
+            align: 'left',
           },
           subtitle: {
-            text: "",
-            align: "left",
+            text: '',
+            align: 'left',
           },
           xAxis: {
-            type: "datetime",
+            type: 'datetime',
             tickInterval: 3600000,
             min: data?.getTwelveHourCurrent.starpoint,
             max: data?.getTwelveHourCurrent.endpoint,
             labels: {
-              format: "{value:%H:%M}",
+              format: '{value:%H:%M}',
             },
           },
           yAxis: {
             //min: 122,
             title: {
-              text: "Amperios",
+              text: 'Amperios',
             },
           },
           tooltip: {
-            valueSuffix: " A",
+            valueSuffix: ' A',
           },
           plotOptions: {
             spline: {
@@ -69,7 +69,7 @@ export const GraphCurrent = () => {
           series: data?.getTwelveHourCurrent.show_data,
           navigation: {
             menuItemStyle: {
-              fontSize: "10px",
+              fontSize: '10px',
             },
           },
         }}

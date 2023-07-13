@@ -1,17 +1,16 @@
-import Highcharts from "highcharts/highstock";
-import HighchartsReact from "highcharts-react-official";
-import { useQuery } from "@apollo/client";
-import { GET_TWELVE_HOUR_VOLTAGE } from "../controllers/measurerController";
+import Highcharts from 'highcharts/highstock';
+import HighchartsReact from 'highcharts-react-official';
+import { useQuery } from '@apollo/client';
+import { GET_TWELVE_HOUR_VOLTAGE } from '../controllers/measurerController';
 
 export const GraphVoltage = ({ Dia }) => {
-  const { data, loading } = useQuery(GET_TWELVE_HOUR_VOLTAGE, {
+  const { data } = useQuery(GET_TWELVE_HOUR_VOLTAGE, {
     variables: {
-      serial: "22551432",
-      day: "07/07/23",
+      serial: '22551432',
+      day: Dia,
     },
-    fetchPolicy: "no-cache",
+    fetchPolicy: 'no-cache',
   });
-  console.log(Dia);
 
   return (
     <div>
@@ -19,37 +18,37 @@ export const GraphVoltage = ({ Dia }) => {
         highcharts={Highcharts}
         options={{
           chart: {
-            type: "spline",
+            type: 'spline',
             scrollablePlotArea: {
               minWidth: 600,
               scrollPositionX: 1,
             },
           },
           title: {
-            text: "Voltaje últimas 24 horas",
-            align: "left",
+            text: 'Voltaje últimas 24 horas',
+            align: 'left',
           },
           subtitle: {
-            text: "",
-            align: "left",
+            text: '',
+            align: 'left',
           },
           xAxis: {
-            type: "datetime",
+            type: 'datetime',
             tickInterval: 3600000,
             min: data?.getTwelveHourVoltage.starpoint,
             max: data?.getTwelveHourVoltage.endpoint,
             labels: {
-              format: "{value:%H:%M}",
+              format: '{value:%H:%M}',
             },
           },
           yAxis: {
             //min: 122,
             title: {
-              text: "Voltios",
+              text: 'Voltios',
             },
           },
           tooltip: {
-            valueSuffix: " V",
+            valueSuffix: ' V',
           },
           plotOptions: {
             spline: {
@@ -70,7 +69,7 @@ export const GraphVoltage = ({ Dia }) => {
           series: data?.getTwelveHourVoltage.show_data,
           navigation: {
             menuItemStyle: {
-              fontSize: "10px",
+              fontSize: '10px',
             },
           },
         }}

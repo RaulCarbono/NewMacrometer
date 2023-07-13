@@ -1,15 +1,15 @@
-import Highcharts from "highcharts/highstock";
-import HighchartsReact from "highcharts-react-official";
-import { useQuery } from "@apollo/client";
-import { GET_TWELVE_HOUR_POWER_FACTOR } from "../controllers/measurerController";
+import Highcharts from 'highcharts/highstock';
+import HighchartsReact from 'highcharts-react-official';
+import { useQuery } from '@apollo/client';
+import { GET_TWELVE_HOUR_POWER_FACTOR } from '../controllers/measurerController';
 
-export const GraphPowerFactor = ({ previusDay, Dia, nextDay, serialS }) => {
-  const { data, loading } = useQuery(GET_TWELVE_HOUR_POWER_FACTOR, {
+export const GraphPowerFactor = ({ Dia }) => {
+  const { data } = useQuery(GET_TWELVE_HOUR_POWER_FACTOR, {
     variables: {
-      serial: "22551432",
-      day: "07/07/23",
+      serial: '22551432',
+      day: Dia,
     },
-    fetchPolicy: "no-cache",
+    fetchPolicy: 'no-cache',
   });
 
   console.log(data);
@@ -20,37 +20,37 @@ export const GraphPowerFactor = ({ previusDay, Dia, nextDay, serialS }) => {
         highcharts={Highcharts}
         options={{
           chart: {
-            type: "spline",
+            type: 'spline',
             scrollablePlotArea: {
               minWidth: 600,
               scrollPositionX: 1,
             },
           },
           title: {
-            text: "Factor de Potencia últimas 24 horas",
-            align: "left",
+            text: 'Factor de Potencia últimas 24 horas',
+            align: 'left',
           },
           subtitle: {
-            text: "",
-            align: "left",
+            text: '',
+            align: 'left',
           },
           xAxis: {
-            type: "datetime",
+            type: 'datetime',
             tickInterval: 3600000,
             min: data?.getTwelveHourPowerFactor.starpoint,
             max: data?.getTwelveHourPowerFactor.endpoint,
             labels: {
-              format: "{value:%H:%M}",
+              format: '{value:%H:%M}',
             },
           },
           yAxis: {
             //min: 122,
             title: {
-              text: "Factor de Potencia",
+              text: 'Factor de Potencia',
             },
           },
           tooltip: {
-            valueSuffix: " FP",
+            valueSuffix: ' FP',
           },
           plotOptions: {
             spline: {
@@ -71,7 +71,7 @@ export const GraphPowerFactor = ({ previusDay, Dia, nextDay, serialS }) => {
           series: data?.getTwelveHourPowerFactor.show_data,
           navigation: {
             menuItemStyle: {
-              fontSize: "10px",
+              fontSize: '10px',
             },
           },
         }}

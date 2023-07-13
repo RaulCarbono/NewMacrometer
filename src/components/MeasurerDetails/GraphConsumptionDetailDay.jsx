@@ -1,36 +1,36 @@
-import Highcharts from "highcharts/highstock";
-import HighchartsReact from "highcharts-react-official";
-import { useQuery } from "@apollo/client";
-import { GET_HISTORY } from "../controllers/measurerController";
-export const GraphConsumptionDetail = () => {
-  const { data, loading } = useQuery(GET_HISTORY, {
+import Highcharts from 'highcharts/highstock';
+import HighchartsReact from 'highcharts-react-official';
+import { useQuery } from '@apollo/client';
+import { GET_HISTORY } from '../controllers/measurerController';
+export const GraphConsumptionDetail = (Day) => {
+  const { data } = useQuery(GET_HISTORY, {
     variables: {
-      serial: "22551432",
-      day: "06/07/23",
+      serial: '22551432',
+      day: Day.Day,
     },
-    fetchPolicy: "no-cache",
+    fetchPolicy: 'no-cache',
   });
 
   console.log(data);
 
   return (
     <div>
-      {" "}
+      {' '}
       <HighchartsReact
         highcharts={Highcharts}
         options={{
           chart: {
-            type: "column",
+            type: 'column',
           },
-          colors: ["#04b431"],
+          colors: ['#04b431'],
 
           title: {
-            align: "left",
-            text: `Consumo total de ${data?.getConsumptionHistory.currentConsumption} kWh `,
+            align: 'left',
+            text: `Consumo total de ${data?.getConsumptionHistory.currentConsumption.toFixed(2)} kWh `,
           },
           subtitle: {
-            align: "left",
-            text: "" /* "Click the columns to view details. " */,
+            align: 'left',
+            text: '' /* "Click the columns to view details. " */,
           },
           accessibility: {
             announceNewData: {
@@ -38,11 +38,11 @@ export const GraphConsumptionDetail = () => {
             },
           },
           xAxis: {
-            type: "category",
+            type: 'category',
           },
           yAxis: {
             title: {
-              text: "",
+              text: '',
             },
           },
           legend: {
@@ -53,21 +53,19 @@ export const GraphConsumptionDetail = () => {
               borderWidth: 0,
               dataLabels: {
                 enabled: true,
-                format: "{point.y:.1f}",
+                format: '{point.y:.1f}',
               },
             },
           },
 
           tooltip: {
-            headerFormat:
-              '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat:
-              '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b> kWh<br/>',
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b> kWh<br/>',
           },
 
           series: [
             {
-              name: "Horas",
+              name: 'Horas',
               colorByPoint: true,
               data: data?.getConsumptionHistory.res,
             },

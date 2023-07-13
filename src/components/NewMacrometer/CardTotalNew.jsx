@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-import Tooltip from "@mui/material/Tooltip";
-import { useState } from "react";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 
-import { GET_METTERS_HISTORY_SERVICES } from "../controllers/measurerController";
-import { useQuery } from "@apollo/client";
-import { each } from "highcharts";
+import { GET_METTERS_HISTORY_SERVICES } from '../controllers/measurerController';
+import { useQuery } from '@apollo/client';
+import { each } from 'highcharts';
 export default function CardTotalNew({ serial }) {
   const opcionesFormateo = {
     minimumFractionDigits: 1, // Fijar el número mínimo de dígitos fraccionarios en 1
@@ -15,40 +12,28 @@ export default function CardTotalNew({ serial }) {
     useGrouping: true, // Habilitar el agrupamiento de miles
   };
 
-  const listMetter = [
-    "FHz",
-    "NC",
-    "Ah",
-    "TExKVarh",
-    "TExKwh",
-    "TImKVarh",
-    "TImKwh",
-    "TKWh",
-    "VFBFC",
-    "VFAFB",
-    "TSE",
-  ];
+  const listMetter = ['FHz', 'NC', 'Ah', 'TExKVarh', 'TExKwh', 'TImKVarh', 'TImKwh', 'TKWh', 'VFBFC', 'VFAFB', 'TSE'];
   const listMetterAlias = {
-    FHz: "Frecuencia",
-    NC: "Corriente en el neutro",
-    Ah: "Amperio hora",
-    TExKVarh: "Reactiva exportada total",
-    TExKwh: "Total activa exportada",
-    TImKVarh: "Total reactiva importada",
-    TImKwh: "Total activa importada",
-    TKWh: "Total activa",
-    VFBFC: "Voltaje fase b fase c",
-    VFAFB: "Voltaje fase a fase b",
-    TSE: "Total energía sistema",
+    FHz: 'Frecuencia',
+    NC: 'Corriente en el neutro',
+    Ah: 'Amperio hora',
+    TExKVarh: 'Reactiva exportada total',
+    TExKwh: 'Total activa exportada',
+    TImKVarh: 'Total reactiva importada',
+    TImKwh: 'Total activa importada',
+    TKWh: 'Total activa',
+    VFBFC: 'Voltaje fase b fase c',
+    VFAFB: 'Voltaje fase a fase b',
+    TSE: 'Total energía sistema',
   };
 
-  const { loading, error, data } = useQuery(GET_METTERS_HISTORY_SERVICES, {
+  const { data } = useQuery(GET_METTERS_HISTORY_SERVICES, {
     variables: serial,
-    fetchPolicy: "no-cache",
+    fetchPolicy: 'no-cache',
   });
 
   const [dataVariables, setDataVariables] = useState();
-  const [dataName, setDataName] = useState("");
+  const [dataName, setDataName] = useState('');
   const [variableAbre, setVariableAbre] = useState();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -56,15 +41,13 @@ export default function CardTotalNew({ serial }) {
     let name = e.target.outerText;
     setVariableAbre(name);
     const arrayValue = data.getMeterHistoryVariables[0];
-    const condition = next
-      ? selectedIndex < listMetter.length - 1
-      : selectedIndex > 0;
+    const condition = next ? selectedIndex < listMetter.length - 1 : selectedIndex > 0;
     const nextIndex = next
       ? condition
-        ? selectedIndex + 1
+        ? setSelectedIndex + 1
         : 0
       : condition
-      ? selectedIndex - 1
+      ? setSelectedIndex - 1
       : listMetter.length - 1;
     for (const nextIndex in arrayValue) {
       if (nextIndex === name) {
@@ -104,42 +87,30 @@ export default function CardTotalNew({ serial }) {
       <div className="container_values_songs ">
         <ArrowDropDownCircleIcon
           sx={{
-            display: "flex",
-            transform: "rotate(90deg)",
-            color: "#B3B3B3",
+            display: 'flex',
+            transform: 'rotate(90deg)',
+            color: '#B3B3B3',
           }}
           className="button_back"
           onClick={previus}
         />
 
         <div
-          className={`${
-            listMetter[0] === variableAbre
-              ? "container_value_button"
-              : "container_value_button_normal"
-          } `}
+          className={`${listMetter[0] === variableAbre ? 'container_value_button' : 'container_value_button_normal'} `}
           onClick={handleNameValue}
         >
           {listMetter[0]}
         </div>
 
         <div
-          className={`${
-            listMetter[1] === variableAbre
-              ? "container_value_button"
-              : "container_value_button_normal"
-          } `}
+          className={`${listMetter[1] === variableAbre ? 'container_value_button' : 'container_value_button_normal'} `}
           onClick={handleNameValue}
         >
           {listMetter[1]}
         </div>
 
         <div
-          className={`${
-            listMetter[2] === variableAbre
-              ? "container_value_button"
-              : "container_value_button_normal"
-          } `}
+          className={`${listMetter[2] === variableAbre ? 'container_value_button' : 'container_value_button_normal'} `}
           onClick={handleNameValue}
         >
           {listMetter[2]}
@@ -147,9 +118,9 @@ export default function CardTotalNew({ serial }) {
 
         <ArrowDropDownCircleIcon
           sx={{
-            display: "flex",
-            transform: "rotate(270deg)",
-            color: "#B3B3B3",
+            display: 'flex',
+            transform: 'rotate(270deg)',
+            color: '#B3B3B3',
           }}
           onClick={next}
         />
