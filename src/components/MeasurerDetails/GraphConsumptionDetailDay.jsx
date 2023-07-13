@@ -6,7 +6,7 @@ export const GraphConsumptionDetail = (Day) => {
   const { data } = useQuery(GET_HISTORY, {
     variables: {
       serial: '22551432',
-      day: Day.Day,
+      day: '05/07/23',
     },
     fetchPolicy: 'no-cache',
   });

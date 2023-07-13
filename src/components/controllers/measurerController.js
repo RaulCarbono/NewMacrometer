@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 export const GET_METTERS = gql`
   query GetMeters {
@@ -73,7 +73,7 @@ export const GET_TWELVE_HOUR_POWER_FACTOR = gql`
 `;
 
 export const GET_HISTORY = gql`
-  query Query($serial: String!, $day: String!) {
-    getConsumptionHistory(serial: $serial, Day: $day)
+  query Query($serial: String!, $day: String, $month: String) {
+    getConsumptionHistory(serial: $serial, Day: $day, month: $month)
   }
 `;

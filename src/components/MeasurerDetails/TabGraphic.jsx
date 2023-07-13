@@ -19,7 +19,7 @@ export const TabGraphic = () => {
   const currentDay = new Date();
   const currentDayToDay = formatoFecha(currentDay);
 
-  console.log(currentDayToDay);
+  const currentMonth = currentDayToDay.slice(4, 5);
 
   return (
     <Box sx={{ width: '100%', height: '30%', typography: 'body1' }}>
@@ -47,7 +47,7 @@ export const TabGraphic = () => {
           <GraphConsumptionDetail Day={currentDayToDay} />
         </TabPanel>
         <TabPanel value="2">
-          <GraphConsumptionDetailPerMonth />
+          <GraphConsumptionDetailPerMonth month={currentMonth} />
         </TabPanel>
         <TabPanel value="3">
           <GraphConsumptionDetailYear />

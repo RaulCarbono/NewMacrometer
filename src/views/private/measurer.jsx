@@ -1,21 +1,14 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
-import SemiCircleProgressBar from "react-progressbar-semicircle";
-import MeasurerDetails from "../../components/MeasurerDetails";
-import { makeStyles, createTheme } from "@material-ui/core/styles";
-import { useTheme } from "@mui/material/styles";
-import {
-  Dialog,
-  AppBar,
-  Typography,
-  Slide,
-  IconButton,
-  Toolbar,
-} from "@material-ui/core";
+import React, { useState, useEffect, useContext, useRef } from 'react';
+import SemiCircleProgressBar from 'react-progressbar-semicircle';
+import MeasurerDetails from '../../components/MeasurerDetails';
+import { makeStyles, createTheme } from '@material-ui/core/styles';
+import { useTheme } from '@mui/material/styles';
+import { Dialog, AppBar, Typography, Slide, IconButton, Toolbar } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    backgroundColor: "#3f9948",
-    position: "fixed",
+    backgroundColor: '#3f9948',
+    position: 'fixed',
   },
   title: {
     marginLeft: theme.spacing(2),
@@ -27,14 +20,18 @@ export const Measurer = () => {
   const classes = useStyles();
   return (
     <div>
-      {" "}
-      <Dialog fullScreen open={true} onClose={""}>
+      {' '}
+      <Dialog
+        fullScreen
+        open={true}
+        onClose={''}
+      >
         <AppBar className={classes.appBar}>
           <Toolbar>
             <IconButton
               edge="start"
               color="inherit"
-              onClick={""}
+              onClick={''}
               aria-label="close"
             >
               x
