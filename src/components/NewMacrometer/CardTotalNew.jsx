@@ -26,33 +26,36 @@ export default function CardTotalNew({ serial }) {
     fetchPolicy: 'no-cache',
   });
 
+  const [currentElectricMeasure, setCurrentElectricMeasure] = React.useState(1);
+  const recordsPerMeasure = 4;
+  const lastIndex = currentElectricMeasure * recordsPerMeasure;
+  const firstIndex = lastIndex - recordsPerMeasure;
+  const recordsMeasures = listMetter.slice(firstIndex, lastIndex);
+  const totalPages = Math.ceil(listMetter.length / recordsPerMeasure);
+  const numbers = [...Array(totalPages + 1).keys()].slice(4);
   const [dataVariables, setDataVariables] = useState();
-  const [dataName, setDataName] = useState('');
-  const [variableAbre, setVariableAbre] = useState();
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [dataName, setDataName] = useState();
+  const [variableAbre, setVariableAbre] = useState('');
 
-  const selectNewVariable = (e, index, listMetter, next = true) => {
-    let name = e.target.outerText;
-    setVariableAbre(name);
-    const arrayValue = data.getMeterHistoryVariables[0];
-    const condition = next ? selectedIndex < listMetter.length - 1 : selectedIndex > 0;
-    const nextIndex = next
-      ? condition
-        ? setSelectedIndex + 1
-        : 0
-      : condition
-      ? setSelectedIndex - 1
-      : listMetter.length - 1;
-    for (const nextIndex in arrayValue) {
-      if (nextIndex === name) {
-        setDataVariables(arrayValue[nextIndex]);
-        setDataName(listMetterAlias[nextIndex]);
-      }
+  console.log(recordsMeasures);
+
+  const prePage = () => {
+    if (currentElectricMeasure !== 1) {
+      setCurrentElectricMeasure(currentElectricMeasure - 1);
+    }
+  };
+  const changeCurrentPage = (id) => {
+    setCurrentElectricMeasure(id);
+  };
+  const nextPage = () => {
+    if (currentElectricMeasure !== totalPages) {
+      setCurrentElectricMeasure(currentElectricMeasure + 1);
     }
   };
 
   const handleNameValue = (e) => {
     let name = e.target.outerText;
+    setDataName(name);
     setVariableAbre(name);
     const arrayValue = data.getMeterHistoryVariables[0];
     for (const key in arrayValue) {
@@ -61,13 +64,6 @@ export default function CardTotalNew({ serial }) {
         setDataName(listMetterAlias[key]);
       }
     }
-  };
-
-  const previus = () => {
-    selectNewVariable(selectedIndex, listMetter, false);
-  };
-  const next = () => {
-    selectNewVariable(selectedIndex, listMetter);
   };
 
   return (
@@ -86,28 +82,42 @@ export default function CardTotalNew({ serial }) {
             color: '#B3B3B3',
           }}
           className="button_back"
-          onClick={previus}
+          onClick={prePage}
         />
 
         <div
-          className={`${listMetter[0] === variableAbre ? 'container_value_button' : 'container_value_button_normal'} `}
+          className={`${
+            recordsMeasures[0] === variableAbre ? 'container_value_button' : 'container_value_button_normal'
+          } `}
           onClick={handleNameValue}
         >
-          {listMetter[0]}
+          {recordsMeasures[0]}
         </div>
 
         <div
-          className={`${listMetter[1] === variableAbre ? 'container_value_button' : 'container_value_button_normal'} `}
+          className={`${
+            recordsMeasures[1] === variableAbre ? 'container_value_button' : 'container_value_button_normal'
+          } `}
           onClick={handleNameValue}
         >
-          {listMetter[1]}
+          {recordsMeasures[1]}
         </div>
 
         <div
-          className={`${listMetter[2] === variableAbre ? 'container_value_button' : 'container_value_button_normal'} `}
+          className={`${
+            recordsMeasures[2] === variableAbre ? 'container_value_button' : 'container_value_button_normal'
+          } `}
           onClick={handleNameValue}
         >
-          {listMetter[2]}
+          {recordsMeasures[2]}
+        </div>
+        <div
+          className={`${
+            recordsMeasures[3] === variableAbre ? 'container_value_button' : 'container_value_button_normal'
+          } `}
+          onClick={handleNameValue}
+        >
+          {recordsMeasures[3]}
         </div>
 
         <ArrowDropDownCircleIcon
@@ -116,7 +126,7 @@ export default function CardTotalNew({ serial }) {
             transform: 'rotate(270deg)',
             color: '#B3B3B3',
           }}
-          onClick={next}
+          onClick={nextPage}
         />
       </div>
     </div>
