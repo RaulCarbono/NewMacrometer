@@ -82,9 +82,7 @@ const MeasurerDetails = () => {
             lg={12}
             xl={12}
             sx={{ height: '40px' }}
-          >
-            <Date serial={serial} />
-          </Grid>
+          ></Grid>
           <Grid
             xs={12}
             sm={12}

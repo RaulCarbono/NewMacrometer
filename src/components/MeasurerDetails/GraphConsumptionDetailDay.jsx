@@ -2,11 +2,12 @@ import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 import { GET_HISTORY } from '../controllers/measurerController';
+import { Date } from '../Date/Date';
 export const GraphConsumptionDetail = (Day) => {
   const { data } = useQuery(GET_HISTORY, {
     variables: {
       serial: '22551432',
-      day: '05/07/23',
+      day: Day.Day,
     },
     fetchPolicy: 'no-cache',
   });
@@ -15,7 +16,8 @@ export const GraphConsumptionDetail = (Day) => {
 
   return (
     <div>
-      {' '}
+      <Date />
+
       <HighchartsReact
         highcharts={Highcharts}
         options={{

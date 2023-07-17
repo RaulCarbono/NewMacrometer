@@ -5,11 +5,15 @@ export const DateContainer = styled.div`
   place-items: center;
   width: 100%;
   margin-top: 20px;
+  border: none;
 `;
 
-export const InputField = styled.input`
-  display: flex;
-
-  padding: 0.5rem;
-  font-size: 1rem;
-`;
+// export const InputField = styled.input`
+//   width: 10%;
+//   height: 40px;
+//   border: none;
+//   border-bottom: 1px solid black;
+//   cursor: pointer;
+//   outline: none;
+//   font-size: 20px;
+// `;

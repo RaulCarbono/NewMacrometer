@@ -4,14 +4,8 @@ import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 
 import { GET_METTERS_HISTORY_SERVICES } from '../controllers/measurerController';
 import { useQuery } from '@apollo/client';
-import { each } from 'highcharts';
-export default function CardTotalNew({ serial }) {
-  const opcionesFormateo = {
-    minimumFractionDigits: 1, // Fijar el número mínimo de dígitos fraccionarios en 1
-    maximumFractionDigits: 1, // Fijar el número máximo de dígitos fraccionarios en 1
-    useGrouping: true, // Habilitar el agrupamiento de miles
-  };
 
+export default function CardTotalNew({ serial }) {
   const listMetter = ['FHz', 'NC', 'Ah', 'TExKVarh', 'TExKwh', 'TImKVarh', 'TImKwh', 'TKWh', 'VFBFC', 'VFAFB', 'TSE'];
   const listMetterAlias = {
     FHz: 'Frecuencia',
