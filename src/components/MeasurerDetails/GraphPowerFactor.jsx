@@ -7,7 +7,7 @@ export const GraphPowerFactor = ({ Dia }) => {
   const { data } = useQuery(GET_TWELVE_HOUR_POWER_FACTOR, {
     variables: {
       serial: '22551432',
-      day: Dia,
+      day: '16/07/23',
     },
     fetchPolicy: 'no-cache',
   });

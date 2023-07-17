@@ -30,6 +30,7 @@ export const GraphConsumptionDetail = (Day) => {
             align: 'left',
             text: `Consumo total de ${data?.getConsumptionHistory.currentConsumption.toFixed(2)} kWh `,
           },
+
           subtitle: {
             align: 'left',
             text: '' /* "Click the columns to view details. " */,
@@ -46,6 +47,8 @@ export const GraphConsumptionDetail = (Day) => {
             title: {
               text: '',
             },
+            min: 0,
+            max: data?.getConsumptionHistory.res.length,
           },
           legend: {
             enabled: false,

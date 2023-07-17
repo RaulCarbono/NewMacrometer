@@ -43,8 +43,11 @@
       color: rgb(24, 19, 19);
       cursor: pointer;
       font-weight: bold;
+
       transition: box-shadow 0.1s;
-      transform: translateY(300deg);
+      transform: translateY(-300deg);
+      box-shadow: rgba(0, 8, 0, 0.23) 0px 0.9px 0.9px;
+
       font-size: 22px;
       // background-color: lightskyblue;
       // border-radius: 50%;

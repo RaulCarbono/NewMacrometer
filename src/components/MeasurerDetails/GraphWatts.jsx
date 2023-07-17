@@ -7,7 +7,7 @@ export const GraphWatts = ({ Dia }) => {
   const { data } = useQuery(GET_TWELVE_HOUR_WATTS, {
     variables: {
       serial: '22551432',
-      day: Dia,
+      day: '16/07/23',
     },
     fetchPolicy: 'no-cache',
   });
