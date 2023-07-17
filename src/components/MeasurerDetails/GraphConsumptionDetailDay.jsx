@@ -48,7 +48,6 @@ export const GraphConsumptionDetail = (Day) => {
               text: '',
             },
             min: 0,
-            max: data?.getConsumptionHistory.res.length,
           },
           legend: {
             enabled: false,

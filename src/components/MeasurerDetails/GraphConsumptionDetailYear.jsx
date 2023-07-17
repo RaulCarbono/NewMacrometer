@@ -7,7 +7,7 @@ export const GraphConsumptionDetailYear = () => {
   const { data } = useQuery(GET_HISTORY, {
     variables: {
       serial: '22551432',
-      year: '2023',
+      year: 2023,
     },
     fetchPolicy: 'no-cache',
   });
