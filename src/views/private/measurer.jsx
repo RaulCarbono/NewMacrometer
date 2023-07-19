@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
-import SemiCircleProgressBar from 'react-progressbar-semicircle';
 import MeasurerDetails from '../../components/MeasurerDetails';
-import { makeStyles, createTheme } from '@material-ui/core/styles';
-import { useTheme } from '@mui/material/styles';
-import { Dialog, AppBar, Typography, Slide, IconButton, Toolbar } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+import { Dialog, AppBar, Typography, IconButton, Toolbar } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {

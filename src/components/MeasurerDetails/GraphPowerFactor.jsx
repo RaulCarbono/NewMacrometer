@@ -3,11 +3,11 @@ import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 import { GET_TWELVE_HOUR_POWER_FACTOR } from '../controllers/measurerController';
 
-export const GraphPowerFactor = ({ Dia }) => {
+export const GraphPowerFactor = (Dia) => {
   const { data } = useQuery(GET_TWELVE_HOUR_POWER_FACTOR, {
     variables: {
       serial: '22551432',
-      day: Dia,
+      day: Dia.Dia,
     },
     fetchPolicy: 'no-cache',
   });
@@ -23,7 +23,7 @@ export const GraphPowerFactor = ({ Dia }) => {
             type: 'spline',
             scrollablePlotArea: {
               minWidth: 600,
-              scrollPositionX: 1,
+              // scrollPositionX: 1,
             },
           },
           title: {

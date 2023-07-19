@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext, Fragment } from 'react';
-
+import { Fragment } from 'react';
 // import { styled } from "@mui/material/styles";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -7,22 +6,26 @@ import { CardPhaseANew } from './NewMacrometer/CardPhaseANew';
 import { CardPhaseBNew } from './NewMacrometer/CardPhaseBNew';
 import { CardPhaseCNew } from './NewMacrometer/CardPhaseCNew';
 import CardTotalNew from './NewMacrometer/CardTotalNew';
-import { useQuery } from '@apollo/client';
-
 import TabGraphicVAV from './MeasurerDetails/TabGraphicVAV';
 import { TabGraphic } from './MeasurerDetails/TabGraphic';
-import { Date } from './Date/Date';
-
-//New Components Design
-
-//components
-
-// import TabGraphicVAV from "./MeasurerDetails/TabGraphicVAV";
+import { GET_METTERS_HISTORY_SERVICES } from './controllers/measurerController';
+import { useQuery } from '@apollo/client';
+import { useEffect, useState } from 'react';
 
 const MeasurerDetails = () => {
-  const [dataSerial, setDataSerial] = useState();
+  const serial = { serial: '22551432' };
+  const { data } = useQuery(GET_METTERS_HISTORY_SERVICES, {
+    variables: serial,
+    fetchPolicy: 'no-cache',
+  });
 
-  const serial = '22551432';
+  const [dato, setDato] = useState();
+
+  useEffect(() => {
+    setDato(data);
+  }, [data]);
+
+  console.log(dato);
   return (
     <Fragment>
       <Box
@@ -44,7 +47,10 @@ const MeasurerDetails = () => {
             lg={3}
             xl={3}
           >
-            <CardTotalNew serial={serial} />
+            <CardTotalNew
+              serial={serial}
+              datos={dato}
+            />
           </Grid>
           <Grid
             xs={12}

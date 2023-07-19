@@ -1,6 +1,5 @@
-import { useState } from "react";
-import "./App.scss";
-import { Measurer } from "./views/private/measurer";
+import './App.scss';
+import { Measurer } from './views/private/measurer';
 
 function App() {
   return (

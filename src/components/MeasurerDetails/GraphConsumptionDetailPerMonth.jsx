@@ -3,7 +3,7 @@ import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 import { GET_HISTORY } from '../controllers/measurerController';
 
-export const GraphConsumptionDetailPerMonth = ({ month }) => {
+export const GraphConsumptionDetailPerMonth = () => {
   const { data } = useQuery(GET_HISTORY, {
     variables: {
       serial: '22551432',
@@ -21,6 +21,9 @@ export const GraphConsumptionDetailPerMonth = ({ month }) => {
         highcharts={Highcharts}
         options={{
           chart: {
+            zooming: {
+              mouseWheel: false,
+            },
             type: 'column',
           },
           colors: ['#04b431'],

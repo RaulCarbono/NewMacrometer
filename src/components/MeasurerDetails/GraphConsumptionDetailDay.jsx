@@ -22,6 +22,9 @@ export const GraphConsumptionDetail = (Day) => {
         highcharts={Highcharts}
         options={{
           chart: {
+            zooming: {
+              mouseWheel: false,
+            },
             type: 'column',
           },
           colors: ['#04b431'],

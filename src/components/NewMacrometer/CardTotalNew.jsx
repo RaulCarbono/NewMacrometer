@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 
-import { GET_METTERS_HISTORY_SERVICES } from '../controllers/measurerController';
-import { useQuery } from '@apollo/client';
+export default function CardTotalNew(datos) {
+  const prueba = datos.datos?.getMeterHistoryVariables[0].TImKwh;
 
-export default function CardTotalNew(serial) {
+  useEffect(() => {
+    setDataVariables(prueba);
+  }, [datos]);
+
   const listMetter = ['FHz', 'NC', 'Ah', 'TExKVarh', 'TExKwh', 'TImKVarh', 'TImKwh', 'TKWh', 'VFBFC', 'VFAFB', 'TSE'];
   const listMetterAlias = {
     FHz: 'Frecuencia',
@@ -21,32 +23,23 @@ export default function CardTotalNew(serial) {
     TSE: 'Total energía sistema',
   };
 
-  const { data } = useQuery(GET_METTERS_HISTORY_SERVICES, {
-    variables: serial,
-    fetchPolicy: 'no-cache',
-  });
-
   const [currentElectricMeasure, setCurrentElectricMeasure] = React.useState(1);
   const recordsPerMeasure = 4;
   const lastIndex = currentElectricMeasure * recordsPerMeasure;
   const firstIndex = lastIndex - recordsPerMeasure;
   const recordsMeasures = listMetter.slice(firstIndex, lastIndex);
   const totalPages = Math.ceil(listMetter.length / recordsPerMeasure);
-  const numbers = [...Array(totalPages + 1).keys()].slice(4);
+  // const numbers = [...Array(totalPages + 1).keys()].slice(4);
   const [dataVariables, setDataVariables] = useState();
-  const [dataName, setDataName] = useState();
+  const [dataName, setDataName] = useState('');
   const [variableAbre, setVariableAbre] = useState('');
-
-  console.log(recordsMeasures);
 
   const prePage = () => {
     if (currentElectricMeasure !== 1) {
       setCurrentElectricMeasure(currentElectricMeasure - 1);
     }
   };
-  const changeCurrentPage = (id) => {
-    setCurrentElectricMeasure(id);
-  };
+
   const nextPage = () => {
     if (currentElectricMeasure !== totalPages) {
       setCurrentElectricMeasure(currentElectricMeasure + 1);
@@ -57,7 +50,7 @@ export default function CardTotalNew(serial) {
     let name = e.target.outerText;
     setDataName(name);
     setVariableAbre(name);
-    const arrayValue = data.getMeterHistoryVariables[0];
+    const arrayValue = datos.datos.getMeterHistoryVariables[0];
     for (const key in arrayValue) {
       if (key === name) {
         setDataVariables(arrayValue[key]);

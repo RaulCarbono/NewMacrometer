@@ -18,6 +18,9 @@ export const GraphConsumptionDetailYear = () => {
         highcharts={Highcharts}
         options={{
           chart: {
+            zooming: {
+              mouseWheel: false,
+            },
             type: 'column',
           },
           colors: ['#04b431'],

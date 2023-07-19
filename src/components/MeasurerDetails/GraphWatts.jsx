@@ -3,11 +3,11 @@ import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 import { GET_TWELVE_HOUR_WATTS } from '../controllers/measurerController';
 
-export const GraphWatts = ({ Dia }) => {
+export const GraphWatts = (Dia) => {
   const { data } = useQuery(GET_TWELVE_HOUR_WATTS, {
     variables: {
       serial: '22551432',
-      day: Dia,
+      day: Dia.Dia,
     },
     fetchPolicy: 'no-cache',
   });

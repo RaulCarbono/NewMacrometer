@@ -1,29 +1,12 @@
-import { useEffect, useState } from 'react';
-
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
 import SemiCircleProgressBar from 'react-progressbar-semicircle';
-import Tooltip from '@mui/material/Tooltip';
 import { useQuery } from '@apollo/client';
 import { GET_METTERS_HISTORY } from '../controllers/measurerController';
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
-
 export const CardPhaseANew = (serial) => {
-  const { loading, error, data } = useQuery(GET_METTERS_HISTORY, {
-    variables: serial,
+  const { data } = useQuery(GET_METTERS_HISTORY, {
+    variables: serial.serial,
     fetchPolicy: 'no-cache',
   });
-  const [mettersAlias, setMetterAlias] = useState();
 
   const medidas = data?.getMeterHistory[0];
 
