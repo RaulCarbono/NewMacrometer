@@ -8,7 +8,7 @@ import { CardPhaseBNew } from './NewMacrometer/CardPhaseBNew';
 import { CardPhaseCNew } from './NewMacrometer/CardPhaseCNew';
 import CardTotalNew from './NewMacrometer/CardTotalNew';
 import { useQuery } from '@apollo/client';
-import { GET_METTERS } from './controllers/measurerController';
+
 import TabGraphicVAV from './MeasurerDetails/TabGraphicVAV';
 import { TabGraphic } from './MeasurerDetails/TabGraphic';
 import { Date } from './Date/Date';
@@ -21,10 +21,8 @@ import { Date } from './Date/Date';
 
 const MeasurerDetails = () => {
   const [dataSerial, setDataSerial] = useState();
-  const { loading, error, data } = useQuery(GET_METTERS);
 
-  const serial = data?.getMeters[0];
-
+  const serial = '22551432';
   return (
     <Fragment>
       <Box

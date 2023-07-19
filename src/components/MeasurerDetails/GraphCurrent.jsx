@@ -7,7 +7,7 @@ export const GraphCurrent = (Dia) => {
   const { data } = useQuery(GET_TWELVE_HOUR_CURRENT, {
     variables: {
       serial: '22551432',
-      day: '16/07/23',
+      day: Dia.Dia,
     },
     fetchPolicy: 'no-cache',
   });

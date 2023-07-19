@@ -5,7 +5,7 @@ import ArrowDropDownCircleIcon from '@mui/icons-material/ArrowDropDownCircle';
 import { GET_METTERS_HISTORY_SERVICES } from '../controllers/measurerController';
 import { useQuery } from '@apollo/client';
 
-export default function CardTotalNew({ serial }) {
+export default function CardTotalNew(serial) {
   const listMetter = ['FHz', 'NC', 'Ah', 'TExKVarh', 'TExKwh', 'TImKVarh', 'TImKwh', 'TKWh', 'VFBFC', 'VFAFB', 'TSE'];
   const listMetterAlias = {
     FHz: 'Frecuencia',

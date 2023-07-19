@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { styled } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
-import SemiCircleProgressBar from "react-progressbar-semicircle";
-import Tooltip from "@mui/material/Tooltip";
-import { useQuery } from "@apollo/client";
-import { GET_METTERS_HISTORY } from "../controllers/measurerController";
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import SemiCircleProgressBar from 'react-progressbar-semicircle';
+import Tooltip from '@mui/material/Tooltip';
+import { useQuery } from '@apollo/client';
+import { GET_METTERS_HISTORY } from '../controllers/measurerController';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
+  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
     duration: theme.transitions.duration.shortest,
   }),
 }));
 
-export const CardPhaseANew = ({ serial }) => {
+export const CardPhaseANew = (serial) => {
   const { loading, error, data } = useQuery(GET_METTERS_HISTORY, {
     variables: serial,
-    fetchPolicy: "no-cache",
+    fetchPolicy: 'no-cache',
   });
   const [mettersAlias, setMetterAlias] = useState();
 
@@ -57,9 +57,7 @@ export const CardPhaseANew = ({ serial }) => {
     <div className="_cardMeasurers_container_">
       <div className="__details_measurer_consumption_variables_CFA_graphic__">
         <div className="__details_measurer_consumption_variables_CFA_graphic_title__ background_CFA">
-          <span className="__details_measurer_consumption_variables_CFA_graphic_title__span">
-            Fase A{" "}
-          </span>
+          <span className="__details_measurer_consumption_variables_CFA_graphic_title__span">Fase A </span>
         </div>
         <div className="__details_measurer_consumption_variables_CFA_graphic_image__">
           <SemiCircleProgressBar
@@ -76,7 +74,7 @@ export const CardPhaseANew = ({ serial }) => {
       </div>
       <div className="__details_measurer_consumption_variables_CFA_value__">
         <div className=" __details_measurer_consumption_variables_CFA_value_vfa__ border_color_CFA">
-          {" "}
+          {' '}
           <div className="__details_measurer_consumption_variables_CFA_value_vfa_value__">
             <span className="container_voltage_number">
               <strong>{medidas?.VFA}</strong>
@@ -87,20 +85,20 @@ export const CardPhaseANew = ({ serial }) => {
         <div className="__details_measurer_consumption_variables_CFA_value_vfa__ border_color_CFA">
           <div className="__details_measurer_consumption_variables_CFA_value_vfa_value__">
             <span className="container_voltage_number">
-              {" "}
+              {' '}
               <strong>{medidas?.CFA}</strong>
               <span className="container_voltaje">Amperaje</span>
             </span>
           </div>
         </div>
         <div className="__details_measurer_consumption_variables_CFA_value_fpa__ border_color_CFA">
-          {" "}
+          {' '}
           {/* <div className="__details_measurer_consumption_variables_CFA_value_vfa_title__ ">
             <strong>Factor P.</strong>
           </div> */}
           <div className="__details_measurer_consumption_variables_CFA_value_vfa_value__">
             <span className="container_voltage_number">
-              {" "}
+              {' '}
               <strong>{medidas?.FPFA}</strong>
               <span className="container_voltaje">Factor P</span>
             </span>

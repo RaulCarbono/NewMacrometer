@@ -1,15 +1,5 @@
 import { gql } from '@apollo/client';
 
-export const GET_METTERS = gql`
-  query GetMeters {
-    getMeters {
-      _id
-      model
-      serial
-    }
-  }
-`;
-
 export const GET_METTERS_HISTORY = gql`
   query GetMeterHistory($serial: String!) {
     getMeterHistory(serial: $serial) {
