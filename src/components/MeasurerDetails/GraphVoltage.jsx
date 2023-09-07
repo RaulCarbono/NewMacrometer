@@ -3,11 +3,11 @@ import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 import { GET_TWELVE_HOUR_VOLTAGE } from '../controllers/measurerController';
 
-export const GraphVoltage = (Dia) => {
+export const GraphVoltage = () => {
   const { data } = useQuery(GET_TWELVE_HOUR_VOLTAGE, {
     variables: {
       serial: '22551432',
-      day: Dia.Dia,
+      starTime: 1694062800,
     },
     fetchPolicy: 'no-cache',
   });
@@ -66,7 +66,7 @@ export const GraphVoltage = (Dia) => {
           time: {
             timezoneOffset: 300,
           },
-          series: data?.getTwelveHourVoltage.show_data,
+          series: data?.getTwelveHourVoltage.ShowData,
           navigation: {
             menuItemStyle: {
               fontSize: '10px',

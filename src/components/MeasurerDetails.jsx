@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 const MeasurerDetails = () => {
   const serial = { serial: '22551432' };
   const { data } = useQuery(GET_METTERS_HISTORY_SERVICES, {
-    variables: serial,
+    variables: { serial: '22551432' },
     fetchPolicy: 'no-cache',
   });
 
@@ -25,7 +25,6 @@ const MeasurerDetails = () => {
     setDato(data);
   }, [data]);
 
-  console.log(dato);
   return (
     <Fragment>
       <Box

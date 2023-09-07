@@ -7,10 +7,11 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 // import { startStandaloneServer } from "@apollo/server/standalone";
 
 // const clientUri = 'http://3.144.108.4:2318/graphql';
-const serverUri = 'https://microservicehsemeasurement.onrender.com/graphql';
+// const serverUri = 'https://microservicehsemeasurement.onrender.com/graphql';
+const uriDynamo = 'http://10.0.5.108:2318/graphql';
 
 const client = new ApolloClient({
-  uri: serverUri,
+  uri: uriDynamo,
   cache: new InMemoryCache(),
 });
 

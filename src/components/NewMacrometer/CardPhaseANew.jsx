@@ -1,10 +1,11 @@
 import SemiCircleProgressBar from 'react-progressbar-semicircle';
 import { useQuery } from '@apollo/client';
 import { GET_METTERS_HISTORY } from '../controllers/measurerController';
+import { percentage_total } from '../../helpers/percentage';
 
-export const CardPhaseANew = (serial) => {
+export const CardPhaseANew = () => {
   const { data } = useQuery(GET_METTERS_HISTORY, {
-    variables: serial.serial,
+    variables: { serial: '22551432' },
     fetchPolicy: 'no-cache',
   });
 
@@ -14,28 +15,7 @@ export const CardPhaseANew = (serial) => {
 
   const medidaString = String(medidasInt);
 
-  const percentageValue = (value) => {
-    if (value?.length < 2) {
-      return (parseInt(value) / 10) * 100;
-    } else if (value.length < 3) {
-      return (parseInt(value) / 100) * 100;
-    } else if (value.length < 4) {
-      return (parseInt(value) / 1000) * 100;
-    } else if (value.length < 5) {
-      return (parseInt(value) / 10000) * 100;
-    } else if (value.length < 6) {
-      return (parseInt(value) / 100000) * 100;
-    } else if (value.length < 7) {
-      return (parseInt(value) / 1000000) * 100;
-    } else if (value.length < 8) {
-      return (parseInt(value) / 10000000) * 100;
-    } else if (value.length < 9) {
-      return (parseInt(value) / 100000000) * 100;
-    } else if (value.length < 10) {
-      return (parseInt(value) / 1000000000) * 100;
-    }
-  };
-
+  const faseA = percentage_total(medidaString);
   return (
     <div className="_cardMeasurers_container_">
       <div className="__details_measurer_consumption_variables_CFA_graphic__">
@@ -44,7 +24,7 @@ export const CardPhaseANew = (serial) => {
         </div>
         <div className="__details_measurer_consumption_variables_CFA_graphic_image__">
           <SemiCircleProgressBar
-            percentage={`${percentageValue(medidaString)}`}
+            percentage={faseA}
             background="#F2F2F2 "
             strokeWidth={25}
             stroke="#f7ce68"

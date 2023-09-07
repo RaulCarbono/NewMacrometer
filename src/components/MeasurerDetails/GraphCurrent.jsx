@@ -3,11 +3,11 @@ import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 import { GET_TWELVE_HOUR_CURRENT } from '../controllers/measurerController';
 
-export const GraphCurrent = (Dia) => {
+export const GraphCurrent = () => {
   const { data } = useQuery(GET_TWELVE_HOUR_CURRENT, {
     variables: {
       serial: '22551432',
-      day: Dia.Dia,
+      starTime: 1694062800,
     },
     fetchPolicy: 'no-cache',
   });
@@ -66,7 +66,7 @@ export const GraphCurrent = (Dia) => {
           time: {
             timezoneOffset: 300,
           },
-          series: data?.getTwelveHourCurrent.show_data,
+          series: data?.getTwelveHourCurrent.ShowData,
           navigation: {
             menuItemStyle: {
               fontSize: '10px',

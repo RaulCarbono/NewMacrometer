@@ -3,16 +3,14 @@ import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 import { GET_TWELVE_HOUR_POWER_FACTOR } from '../controllers/measurerController';
 
-export const GraphPowerFactor = (Dia) => {
+export const GraphPowerFactor = () => {
   const { data } = useQuery(GET_TWELVE_HOUR_POWER_FACTOR, {
     variables: {
       serial: '22551432',
-      day: Dia.Dia,
+      starTime: 1694062800,
     },
     fetchPolicy: 'no-cache',
   });
-
-  console.log(data);
 
   return (
     <div>
@@ -68,7 +66,7 @@ export const GraphPowerFactor = (Dia) => {
           time: {
             timezoneOffset: 300,
           },
-          series: data?.getTwelveHourPowerFactor.show_data,
+          series: data?.getTwelveHourPowerFactor.ShowData,
           navigation: {
             menuItemStyle: {
               fontSize: '10px',

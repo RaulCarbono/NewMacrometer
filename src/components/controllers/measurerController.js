@@ -39,31 +39,31 @@ export const GET_METTERS_HISTORY_SERVICES = gql`
 `;
 
 export const GET_TWELVE_HOUR_VOLTAGE = gql`
-  query Query($serial: String!, $day: String!) {
-    getTwelveHourVoltage(serial: $serial, Day: $day)
+  query GetMeterHistory($serial: String!, $starTime: Int!) {
+    getTwelveHourVoltage(serial: $serial, starTime: $starTime)
   }
 `;
 
 export const GET_TWELVE_HOUR_WATTS = gql`
-  query Query($serial: String!, $day: String!) {
-    getTwelveHourWatt(serial: $serial, Day: $day)
+  query GetMeterHistory($serial: String!, $starTime: Int!) {
+    getTwelveHourWatt(serial: $serial, starTime: $starTime)
   }
 `;
 
 export const GET_TWELVE_HOUR_CURRENT = gql`
-  query Query($serial: String!, $day: String!) {
-    getTwelveHourCurrent(serial: $serial, Day: $day)
+  query GetMeterHistory($serial: String!, $starTime: Int!) {
+    getTwelveHourCurrent(serial: $serial, starTime: $starTime)
   }
 `;
 
 export const GET_TWELVE_HOUR_POWER_FACTOR = gql`
-  query Query($serial: String!, $day: String!) {
-    getTwelveHourPowerFactor(serial: $serial, Day: $day)
+  query GetMeterHistory($serial: String!, $starTime: Int!) {
+    getTwelveHourPowerFactor(serial: $serial, starTime: $starTime)
   }
 `;
 
-export const GET_HISTORY = gql`
-  query Query($serial: String!, $day: String, $month: Int, $year: Int) {
-    getConsumptionHistory(serial: $serial, Day: $day, month: $month, year: $year)
+export const GET_HISTORY_TOW = gql`
+  query ExampleQuery($serial: String!, $month: Int, $year: Int, $starTime: Int) {
+    getConsumptionHistory(serial: $serial, month: $month, year: $year, starTime: $starTime)
   }
 `;

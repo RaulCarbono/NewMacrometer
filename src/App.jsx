@@ -1,4 +1,5 @@
 import './App.scss';
+
 import { Measurer } from './views/private/measurer';
 
 function App() {

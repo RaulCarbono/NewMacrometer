@@ -1,10 +1,10 @@
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
-import { GET_HISTORY } from '../controllers/measurerController';
+import { GET_HISTORY_TOW } from '../controllers/measurerController';
 
 export const GraphConsumptionDetailYear = () => {
-  const { data } = useQuery(GET_HISTORY, {
+  const { data } = useQuery(GET_HISTORY_TOW, {
     variables: {
       serial: '22551432',
       year: 2023,

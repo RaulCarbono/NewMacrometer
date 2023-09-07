@@ -18,18 +18,15 @@ export const Measurer = () => {
   const classes = useStyles();
   return (
     <div>
-      {' '}
       <Dialog
         fullScreen
         open={true}
-        onClose={''}
       >
         <AppBar className={classes.appBar}>
           <Toolbar>
             <IconButton
               edge="start"
               color="inherit"
-              onClick={''}
               aria-label="close"
             >
               x

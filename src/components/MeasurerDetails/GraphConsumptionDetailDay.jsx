@@ -1,19 +1,16 @@
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
-import { GET_HISTORY } from '../controllers/measurerController';
+import { GET_HISTORY_TOW } from '../controllers/measurerController';
 import { Date } from '../Date/Date';
-export const GraphConsumptionDetail = (Day) => {
-  const { data } = useQuery(GET_HISTORY, {
+export const GraphConsumptionDetail = () => {
+  const { data } = useQuery(GET_HISTORY_TOW, {
     variables: {
       serial: '22551432',
-      day: Day.Day,
+      starTime: 1694062800,
     },
     fetchPolicy: 'no-cache',
   });
-
-  console.log(data);
-
   return (
     <div>
       <Date />
