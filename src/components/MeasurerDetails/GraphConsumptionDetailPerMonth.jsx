@@ -2,13 +2,13 @@ import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 import { GET_HISTORY_TOW } from '../controllers/measurerController';
-
+import { medidor } from '../../helpers/dataMacrometer';
 export const GraphConsumptionDetailPerMonth = () => {
   const { data } = useQuery(GET_HISTORY_TOW, {
     variables: {
-      serial: '22551432',
-      month: 9,
-      year: 23,
+      serial: medidor,
+      month: 2,
+      year: 24,
     },
     fetchPolicy: 'no-cache',
   });
@@ -29,7 +29,7 @@ export const GraphConsumptionDetailPerMonth = () => {
 
           title: {
             align: 'left',
-            text: `Consumo total de ${data?.getConsumptionHistory.currentConsumption.toFixed(2)} kWh `,
+            text: `Consumo total de ${data?.getConsumptionHistory.currentConsumption} kWh `,
           },
           subtitle: {
             align: 'left',

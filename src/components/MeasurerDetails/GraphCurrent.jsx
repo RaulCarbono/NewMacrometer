@@ -35,8 +35,8 @@ export const GraphCurrent = () => {
           xAxis: {
             type: 'datetime',
             tickInterval: 3600000,
-            min: data?.getTwelveHourCurrent.starpoint,
-            max: data?.getTwelveHourCurrent.endpoint,
+            min: data?.getTwelveHourCurrent?.starpoint,
+            max: data?.getTwelveHourCurrent?.endpoint,
             labels: {
               format: '{value:%H:%M}',
             },
@@ -66,7 +66,7 @@ export const GraphCurrent = () => {
           time: {
             timezoneOffset: 300,
           },
-          series: data?.getTwelveHourCurrent.ShowData,
+          series: data?.getTwelveHourCurrent?.ShowData,
           navigation: {
             menuItemStyle: {
               fontSize: '10px',

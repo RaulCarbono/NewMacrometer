@@ -4,7 +4,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import { GraphConsumptionDetail } from './GraphConsumptionDetailDay';
+import { GraphConsumptionDetailDay } from './GraphConsumptionDetailDay';
 import { GraphConsumptionDetailPerMonth } from './GraphConsumptionDetailPerMonth';
 import { GraphConsumptionDetailYear } from './GraphConsumptionDetailYear';
 import { formatoFecha } from '../../helpers/listMacrometer';
@@ -44,7 +44,7 @@ export const TabGraphic = () => {
           </TabList>
         </Box>
         <TabPanel value="1">
-          <GraphConsumptionDetail Day={currentDayToDay} />
+          <GraphConsumptionDetailDay Day={currentDayToDay} />
         </TabPanel>
         <TabPanel value="2">
           <GraphConsumptionDetailPerMonth month={currentMonth} />

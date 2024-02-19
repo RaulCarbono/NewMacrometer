@@ -27,7 +27,7 @@ export const GraphConsumptionDetailYear = () => {
 
           title: {
             align: 'left',
-            text: `Consumo total de ${data?.getConsumptionHistory.currentConsumption.toFixed(2)} kWh `,
+            text: `Consumo total de ${data?.getConsumptionHistory.currentConsumption} kWh `,
           },
           subtitle: {
             align: 'left',
