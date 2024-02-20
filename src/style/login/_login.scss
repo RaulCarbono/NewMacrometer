@@ -36,3 +36,54 @@
     }
   }
 }
+
+.container_card_login {
+  display: grid;
+  height: 100vh;
+  place-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: center;
+  justify-content: center;
+
+  .form_login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    place-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(21, 146, 150);
+    text-align: center;
+    font-size: 18px;
+    color: rgb(221, 224, 227);
+  }
+  .icon img {
+    color: white;
+    width: 100px;
+    height: 100px;
+  }
+  .user {
+    margin-bottom: 10px;
+    display: grid;
+    gap: 5px;
+    width: 400px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    writing-mode: horizontal-tb;
+    letter-spacing: normal;
+  }
+  .password {
+    margin-bottom: 10px;
+    display: grid;
+    gap: 5px;
+    width: 400px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    writing-mode: horizontal-tb;
+    letter-spacing: normal;
+  }
+}

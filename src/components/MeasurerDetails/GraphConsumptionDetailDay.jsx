@@ -17,7 +17,7 @@ export const GraphConsumptionDetailDay = () => {
     },
     fetchPolicy: 'no-cache',
   });
-  console.log(data);
+
   return (
     <>
       <div>
@@ -85,7 +85,6 @@ export const GraphConsumptionDetailDay = () => {
           }}
         />
       </div>
-      {/* <TableConsumptions /> */}
     </>
   );
 };

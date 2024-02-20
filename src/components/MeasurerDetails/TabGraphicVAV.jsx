@@ -9,6 +9,7 @@ import { GraphWatts } from './GraphWatts';
 import { GraphCurrent } from './GraphCurrent';
 import { GraphPowerFactor } from './GraphPowerFactor';
 import { formatoFecha } from '../../helpers/listMacrometer';
+import TableConsumptions from './TableConsumptions';
 
 export default function TabGraphicVAV() {
   const [value, setValue] = React.useState('1');
@@ -36,60 +37,63 @@ export default function TabGraphicVAV() {
   }
 
   return (
-    <Box sx={{ width: '100%', typography: 'body1', marginBottom: '5%' }}>
-      <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList
-            onChange={handleChange}
-            aria-label="lab API tabs example"
-          >
-            <Tab
-              label="Voltaje"
-              value="1"
+    <>
+      <Box sx={{ width: '100%', typography: 'body1', marginBottom: '5%' }}>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <TabList
+              onChange={handleChange}
+              aria-label="lab API tabs example"
+            >
+              <Tab
+                label="Voltaje"
+                value="1"
+              />
+              <Tab
+                label="Amperaje"
+                value="2"
+              />
+              <Tab
+                label="Watts"
+                value="3"
+              />
+              <Tab
+                label="Factor de Potencia"
+                value="4"
+              />
+            </TabList>
+          </Box>
+          <TabPanel value="1">
+            <GraphVoltage
+              Dia={currentDayToDay}
+              previusDay={previusDay}
+              nextDay={nextDay}
             />
-            <Tab
-              label="Amperaje"
-              value="2"
+          </TabPanel>
+          <TabPanel value="2">
+            <GraphCurrent
+              Dia={currentDayToDay}
+              previusDay={previusDay}
+              nextDay={nextDay}
             />
-            <Tab
-              label="Watts"
-              value="3"
+          </TabPanel>
+          <TabPanel value="3">
+            <GraphWatts
+              Dia={currentDayToDay}
+              previusDay={previusDay}
+              nextDay={nextDay}
             />
-            <Tab
-              label="Factor de Potencia"
-              value="4"
+          </TabPanel>
+          <TabPanel value="4">
+            <GraphPowerFactor
+              Dia={currentDayToDay}
+              previusDay={previusDay}
+              nextDay={nextDay}
             />
-          </TabList>
-        </Box>
-        <TabPanel value="1">
-          <GraphVoltage
-            Dia={currentDayToDay}
-            previusDay={previusDay}
-            nextDay={nextDay}
-          />
-        </TabPanel>
-        <TabPanel value="2">
-          <GraphCurrent
-            Dia={currentDayToDay}
-            previusDay={previusDay}
-            nextDay={nextDay}
-          />
-        </TabPanel>
-        <TabPanel value="3">
-          <GraphWatts
-            Dia={currentDayToDay}
-            previusDay={previusDay}
-            nextDay={nextDay}
-          />
-        </TabPanel>
-        <TabPanel value="4">
-          <GraphPowerFactor
-            Dia={currentDayToDay}
-            previusDay={previusDay}
-            nextDay={nextDay}
-          />
-        </TabPanel>
-      </TabContext>
-    </Box>
+          </TabPanel>
+        </TabContext>
+      </Box>
+      <TableConsumptions />
+    </>
   );
 }

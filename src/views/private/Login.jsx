@@ -1,19 +1,35 @@
+import avatar from '../../img/avatar.png';
+
 export const Login = () => {
   return (
-    <div className="container_windows">
-      <article className="container_login">
-        <div className="login_container">
-          <input
-            className="login"
-            type="text"
-          />
-          <input
-            className="password"
-            type="text"
-          />
-          <button className="button_login">Aceptar</button>
-        </div>
-      </article>
-    </div>
+    <>
+      <main className="container_card_login">
+        <section className="desing_img">
+          <div className="icon_desing"></div>
+        </section>
+        <section className="form_login">
+          <div className="icon">
+            <img
+              src={avatar}
+              alt="User"
+            />
+          </div>
+          <label>
+            Ingresa tu usuario
+            <input
+              className="user"
+              type="text"
+            />
+          </label>
+          <label>
+            Ingresa tu contraseña
+            <input
+              className="password"
+              type="text"
+            />
+          </label>
+        </section>
+      </main>
+    </>
   );
 };
