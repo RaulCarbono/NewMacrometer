@@ -93,7 +93,6 @@ export default function TabGraphicVAV() {
           </TabPanel>
         </TabContext>
       </Box>
-      <TableConsumptions />
     </>
   );
 }

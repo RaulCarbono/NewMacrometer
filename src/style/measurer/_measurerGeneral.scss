@@ -72,10 +72,17 @@
     }
   }
 
+  .tabla {
+    display: grid;
+    width: 100px;
+  }
+
   ._measurergeneral_container_tables_ {
     display: grid;
-    grid-template-columns: 100%;
-    margin: 50px 20% 50px 20%;
+    grid-template-columns: 80%;
+    margin: 40px 20% 40px 20%;
+    justify-content: center;
+    width: 30%;
 
     .__report_measurer_table_total_title__ {
       font-size: 25px;
@@ -87,12 +94,12 @@
 
   .__measurergeneral_grid_title_tables__ {
     display: grid;
-    grid-template-columns: 35% 30% 35%;
+    grid-template-columns: 30% 30% 30%;
 
     hr {
       border: 0;
       border-top: 2px solid $color_green_principal;
-      width: 90%;
+      width: 80%;
       // border-color: $color_green_principal;
     }
 
@@ -105,7 +112,7 @@
     /*  display: grid;
           grid-template-columns: repeat(4, 1fr); */
     display: grid;
-    grid-template-columns: 63%;
+    grid-template-columns: 40%;
     justify-content: center;
     align-items: center;
     //column-gap: 30px;

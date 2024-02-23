@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { GET_HISTORY_TOW } from '../controllers/measurerController';
 import { dia, medidor, timeZone } from '../../helpers/dataMacrometer';
 import { useQuery } from '@apollo/client';
+import { useState } from 'react';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -36,6 +37,7 @@ const StyledTableRow = withStyles((theme) => ({
 }))(TableRow);
 
 const TableConsumptions = () => {
+  const [medida, setMedida] = useState();
   const { data } = useQuery(GET_HISTORY_TOW, {
     variables: {
       serial: medidor,
@@ -44,62 +46,65 @@ const TableConsumptions = () => {
     },
     fetchPolicy: 'no-cache',
   });
+  const initialValue = data?.getConsumptionHistory?.totalBy[0].initialValue;
+  const finalValue = data?.getConsumptionHistory?.totalBy.at(-1).finalValue;
+  const totalValue = finalValue - initialValue;
   console.log(data);
 
   return (
-    <div className="_measurergeneral_container_tables_">
-      <TableContainer component={Paper}>Hola</TableContainer>
-      <div className="__report_measurer_table_total_title__"></div>
-      <Table aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>N° del medidor</StyledTableCell>
-            <StyledTableCell>Áreas</StyledTableCell>
-            <StyledTableCell>Medida Inicial</StyledTableCell>
-            <StyledTableCell>Medida Final</StyledTableCell>
-            <StyledTableCell>Total</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data?.getConsumptionHistory?.totalBy.map((i, key) => (
-            <StyledTableRow>
-              <StyledTableCell aling="center">{key + 1}</StyledTableCell>
-              <StyledTableCell aling="center">{i?.name}</StyledTableCell>
-              <StyledTableCell aling="center">{''}</StyledTableCell>
-              <StyledTableCell aling="center">{key + 1}</StyledTableCell>
-              <StyledTableCell aling="center">{key + 1}</StyledTableCell>
-            </StyledTableRow>
-          ))}
+    <>
+      <Paper>
+        <TableContainer align="center">
+          <Table aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell aling="center">N° del medidor</StyledTableCell>
+                <StyledTableCell aling="center">Medida Inicial</StyledTableCell>
+                <StyledTableCell aling="center">Medida Final</StyledTableCell>
+                <StyledTableCell aling="center">Total</StyledTableCell>
+                <StyledTableCell aling="center">Acumulado</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {data?.getConsumptionHistory?.totalBy.map((i, key) => (
+                <StyledTableRow>
+                  <StyledTableCell aling="center">{key + 1}</StyledTableCell>
+                  <StyledTableCell aling="center">{i?.initialValue}</StyledTableCell>
+                  <StyledTableCell aling="center">{i.finalValue}</StyledTableCell>
+                  <StyledTableCell aling="center">{(i.finalValue - i.initialValue).toFixed(1)}</StyledTableCell>
+                  <StyledTableCell aling="center"></StyledTableCell>
+                </StyledTableRow>
+              ))}
 
-          <StyledTableRow>
-            <StyledTableCell2
-              component="th"
-              scope="row"
-              align="center"
-            >
-              Total
-            </StyledTableCell2>
-            <StyledTableCell2
-              component="th"
-              scope="row"
-            ></StyledTableCell2>
-            <StyledTableCell2
-              component="th"
-              scope="row"
-            ></StyledTableCell2>
-            <StyledTableCell2
-              component="th"
-              scope="row"
-            ></StyledTableCell2>
-            <StyledTableCell2
-              component="th"
-              scope="row"
-              align="center"
-            ></StyledTableCell2>
-          </StyledTableRow>
-        </TableBody>
-      </Table>
-    </div>
+              <StyledTableRow>
+                <StyledTableCell2 align="center">Total</StyledTableCell2>
+                <StyledTableCell2
+                  component="th"
+                  scope="row"
+                ></StyledTableCell2>
+                <StyledTableCell2
+                  component="th"
+                  scope="row"
+                ></StyledTableCell2>
+                <StyledTableCell2
+                  component="th"
+                  scope="row"
+                >
+                  {' '}
+                  {totalValue.toFixed(0)}
+                </StyledTableCell2>
+
+                <StyledTableCell2
+                  component="th"
+                  scope="row"
+                  align="center"
+                ></StyledTableCell2>
+              </StyledTableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Paper>
+    </>
   );
 };
 export default TableConsumptions;

@@ -11,6 +11,7 @@ import { TabGraphic } from './MeasurerDetails/TabGraphic';
 import { GET_METTERS_HISTORY_SERVICES } from './controllers/measurerController';
 import { useQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
+import TableConsumptions from './MeasurerDetails/TableConsumptions';
 
 const MeasurerDetails = () => {
   const serial = { serial: '22551432' };
@@ -105,6 +106,17 @@ const MeasurerDetails = () => {
             sx={{ height: '550px' }}
           >
             <TabGraphicVAV serial={serial} />
+          </Grid>
+          <Grid
+            container
+            xs={12}
+            sm={12}
+            md={12}
+            lg={12}
+            xl={12}
+            sx={{ width: '90%' }}
+          >
+            <TableConsumptions serial={serial} />
           </Grid>
         </Grid>
       </Box>
