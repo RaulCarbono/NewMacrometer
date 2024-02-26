@@ -36,7 +36,7 @@ export const GraphConsumptionDetailDay = () => {
 
             title: {
               align: 'left',
-              text: `Consumo total de ${data?.getConsumptionHistory?.currentConsumption?.toFixed(0)} kWh `,
+              text: `Consumo total de ${data?.getConsumptionHistory?.currentConsumption?.toFixed(1)} kWh `,
             },
 
             subtitle: {

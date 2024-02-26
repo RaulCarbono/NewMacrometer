@@ -1,7 +1,7 @@
 import { TableHead } from '@material-ui/core';
 import { Table } from '@material-ui/core';
 import { TableContainer, TableRow, TableBody, Paper, TableCell } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { GET_HISTORY_TOW } from '../controllers/measurerController';
 import { dia, medidor, timeZone } from '../../helpers/dataMacrometer';
 import { useQuery } from '@apollo/client';
@@ -17,6 +17,18 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'grid',
+    width: '95%',
+    marginLeft: '50px',
+  },
+  celda: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginLeft: '10px',
+  },
+}));
 const StyledTableCell2 = withStyles((theme) => ({
   head: {
     backgroundColor: '#4caf50e6',
@@ -37,6 +49,7 @@ const StyledTableRow = withStyles((theme) => ({
 }))(TableRow);
 
 const TableConsumptions = () => {
+  const classes = useStyles();
   const [medida, setMedida] = useState();
   const { data } = useQuery(GET_HISTORY_TOW, {
     variables: {
@@ -49,11 +62,10 @@ const TableConsumptions = () => {
   const initialValue = data?.getConsumptionHistory?.totalBy[0].initialValue;
   const finalValue = data?.getConsumptionHistory?.totalBy.at(-1).finalValue;
   const totalValue = finalValue - initialValue;
-  console.log(data);
 
   return (
     <>
-      <Paper>
+      <Paper className={classes.container}>
         <TableContainer align="center">
           <Table aria-label="customized table">
             <TableHead>
@@ -68,16 +80,16 @@ const TableConsumptions = () => {
             <TableBody>
               {data?.getConsumptionHistory?.totalBy.map((i, key) => (
                 <StyledTableRow>
-                  <StyledTableCell aling="center">{key + 1}</StyledTableCell>
-                  <StyledTableCell aling="center">{i?.initialValue}</StyledTableCell>
-                  <StyledTableCell aling="center">{i.finalValue}</StyledTableCell>
-                  <StyledTableCell aling="center">{(i.finalValue - i.initialValue).toFixed(1)}</StyledTableCell>
-                  <StyledTableCell aling="center"></StyledTableCell>
+                  <StyledTableCell>{key + 1}</StyledTableCell>
+                  <StyledTableCell aling="center">{i?.initialValue} ´kWh</StyledTableCell>
+                  <StyledTableCell aling="center">{i.finalValue} ´kWh</StyledTableCell>
+                  <StyledTableCell aling="center">{i.y.toFixed(1)} ´kWh</StyledTableCell>
+                  <StyledTableCell aling="center">{i.accumulated} ´kWh</StyledTableCell>
                 </StyledTableRow>
               ))}
 
               <StyledTableRow>
-                <StyledTableCell2 align="center">Total</StyledTableCell2>
+                <StyledTableCell2>Total</StyledTableCell2>
                 <StyledTableCell2
                   component="th"
                   scope="row"
@@ -91,7 +103,7 @@ const TableConsumptions = () => {
                   scope="row"
                 >
                   {' '}
-                  {totalValue.toFixed(0)}
+                  {totalValue.toFixed(1)}
                 </StyledTableCell2>
 
                 <StyledTableCell2
