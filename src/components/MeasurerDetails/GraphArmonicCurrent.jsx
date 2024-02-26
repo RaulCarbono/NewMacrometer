@@ -1,10 +1,10 @@
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
-import { GET_TWELVE_HOUR_FREQUENCYE } from '../controllers/measurerController';
+import { GET_TWELVE_HOUR_HARMONIC_CURRENT } from '../controllers/measurerController';
 
-export const GraphFrecuency = () => {
-  const { data } = useQuery(GET_TWELVE_HOUR_FREQUENCYE, {
+export const GraphArmonicCurrent = () => {
+  const { data } = useQuery(GET_TWELVE_HOUR_HARMONIC_CURRENT, {
     variables: {
       serial: '22551432',
       starTime: 1694062800,
@@ -35,8 +35,8 @@ export const GraphFrecuency = () => {
           xAxis: {
             type: 'datetime',
             tickInterval: 3600000,
-            min: data?.getFrequencyGraphs.starpoint,
-            max: data?.getFrequencyGraphs.endpoint,
+            min: data?.getHarmonicCurrentGraphs.starpoint,
+            max: data?.getHarmonicCurrentGraphs.endpoint,
             labels: {
               format: '{value:%H:%M}',
             },
@@ -66,7 +66,7 @@ export const GraphFrecuency = () => {
           time: {
             timezoneOffset: 300,
           },
-          series: data?.getFrequencyGraphs.ShowData,
+          series: data?.getHarmonicCurrentGraphs.ShowData,
           navigation: {
             menuItemStyle: {
               fontSize: '10px',

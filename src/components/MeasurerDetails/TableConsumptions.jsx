@@ -70,7 +70,7 @@ const TableConsumptions = () => {
           <Table aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell aling="center">N° del medidor</StyledTableCell>
+                <StyledTableCell aling="center">Hora</StyledTableCell>
                 <StyledTableCell aling="center">Medida Inicial</StyledTableCell>
                 <StyledTableCell aling="center">Medida Final</StyledTableCell>
                 <StyledTableCell aling="center">Total</StyledTableCell>
@@ -80,11 +80,11 @@ const TableConsumptions = () => {
             <TableBody>
               {data?.getConsumptionHistory?.totalBy.map((i, key) => (
                 <StyledTableRow>
-                  <StyledTableCell>{key + 1}</StyledTableCell>
-                  <StyledTableCell aling="center">{i?.initialValue} ´kWh</StyledTableCell>
-                  <StyledTableCell aling="center">{i.finalValue} ´kWh</StyledTableCell>
-                  <StyledTableCell aling="center">{i.y.toFixed(1)} ´kWh</StyledTableCell>
-                  <StyledTableCell aling="center">{i.accumulated} ´kWh</StyledTableCell>
+                  <StyledTableCell>{i.x}</StyledTableCell>
+                  <StyledTableCell aling="center">{i?.initialValue} kWh</StyledTableCell>
+                  <StyledTableCell aling="center">{i.finalValue} kWh</StyledTableCell>
+                  <StyledTableCell aling="center">{i.y.toFixed(1)} kWh</StyledTableCell>
+                  <StyledTableCell aling="center">{i.accumulated} kWh</StyledTableCell>
                 </StyledTableRow>
               ))}
 
@@ -103,7 +103,7 @@ const TableConsumptions = () => {
                   scope="row"
                 >
                   {' '}
-                  {totalValue.toFixed(1)}
+                  {totalValue.toFixed(1)} kWh
                 </StyledTableCell2>
 
                 <StyledTableCell2

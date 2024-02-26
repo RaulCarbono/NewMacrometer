@@ -62,6 +62,24 @@ export const GET_TWELVE_HOUR_POWER_FACTOR = gql`
   }
 `;
 
+export const GET_TWELVE_HOUR_FREQUENCYE = gql`
+  query Query($serial: String!, $starTime: Int!) {
+    getFrequencyGraphs(serial: $serial, starTime: $starTime)
+  }
+`;
+
+export const GET_TWELVE_HOUR_HARMONIC_CURRENT = gql`
+  query Query($serial: String!, $starTime: Int!) {
+    getHarmonicCurrentGraphs(serial: $serial, starTime: $starTime)
+  }
+`;
+
+export const GET_TWELVE_HOUR_HARMONIC_VOLTAGE = gql`
+  query Query($serial: String!, $starTime: Int!) {
+    getHarmonicVoltageGraphs(serial: $serial, starTime: $starTime)
+  }
+`;
+
 export const GET_HISTORY_TOW = gql`
   query ExampleQuery($serial: String!, $month: Int, $year: Int, $starTime: Int) {
     getConsumptionHistory(serial: $serial, month: $month, year: $year, starTime: $starTime)

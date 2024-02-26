@@ -8,8 +8,11 @@ import { GraphVoltage } from './GraphVoltage';
 import { GraphWatts } from './GraphWatts';
 import { GraphCurrent } from './GraphCurrent';
 import { GraphPowerFactor } from './GraphPowerFactor';
+import { GraphFrecuency } from './GraphFrecuency';
 import { formatoFecha } from '../../helpers/listMacrometer';
 import TableConsumptions from './TableConsumptions';
+import { GraphArmonicCurrent } from './GraphArmonicCurrent';
+import { GraphHarmonicVoltage } from './GraphHarmonicVoltage';
 
 export default function TabGraphicVAV() {
   const [value, setValue] = React.useState('1');
@@ -61,6 +64,18 @@ export default function TabGraphicVAV() {
                 label="Factor de Potencia"
                 value="4"
               />
+              <Tab
+                label="Frecuencia"
+                value="5"
+              />
+              <Tab
+                label="Armonico de amperaje"
+                value="6"
+              />
+              <Tab
+                label="Armonico de voltaje"
+                value="7"
+              />
             </TabList>
           </Box>
           <TabPanel value="1">
@@ -86,6 +101,27 @@ export default function TabGraphicVAV() {
           </TabPanel>
           <TabPanel value="4">
             <GraphPowerFactor
+              Dia={currentDayToDay}
+              previusDay={previusDay}
+              nextDay={nextDay}
+            />
+          </TabPanel>
+          <TabPanel value="5">
+            <GraphFrecuency
+              Dia={currentDayToDay}
+              previusDay={previusDay}
+              nextDay={nextDay}
+            />
+          </TabPanel>
+          <TabPanel value="6">
+            <GraphArmonicCurrent
+              Dia={currentDayToDay}
+              previusDay={previusDay}
+              nextDay={nextDay}
+            />
+          </TabPanel>
+          <TabPanel value="7">
+            <GraphHarmonicVoltage
               Dia={currentDayToDay}
               previusDay={previusDay}
               nextDay={nextDay}
