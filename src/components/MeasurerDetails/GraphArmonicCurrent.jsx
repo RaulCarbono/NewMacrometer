@@ -2,12 +2,12 @@ import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 import { GET_TWELVE_HOUR_HARMONIC_CURRENT } from '../controllers/measurerController';
-
+import { dia, medidor, timeZone } from '../../helpers/dataMacrometer';
 export const GraphArmonicCurrent = () => {
   const { data } = useQuery(GET_TWELVE_HOUR_HARMONIC_CURRENT, {
     variables: {
-      serial: '22551432',
-      starTime: 1694062800,
+      serial: medidor,
+      starTime: 1709528400,
     },
     fetchPolicy: 'no-cache',
   });

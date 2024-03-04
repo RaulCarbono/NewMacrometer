@@ -17,6 +17,7 @@ export const GraphConsumptionDetailDay = () => {
     },
     fetchPolicy: 'no-cache',
   });
+  console.log(data?.getConsumptionHistory.res);
 
   return (
     <>

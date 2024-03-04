@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'grid',
     width: '95%',
     marginLeft: '50px',
+    overflow: 'auto',
   },
   celda: {
     display: 'flex',
@@ -80,11 +81,11 @@ const TableConsumptions = () => {
             <TableBody>
               {data?.getConsumptionHistory?.totalBy.map((i, key) => (
                 <StyledTableRow>
-                  <StyledTableCell>{i.x}</StyledTableCell>
+                  <StyledTableCell>{i?.x}</StyledTableCell>
                   <StyledTableCell aling="center">{i?.initialValue} kWh</StyledTableCell>
-                  <StyledTableCell aling="center">{i.finalValue} kWh</StyledTableCell>
-                  <StyledTableCell aling="center">{i.y.toFixed(1)} kWh</StyledTableCell>
-                  <StyledTableCell aling="center">{i.accumulated} kWh</StyledTableCell>
+                  <StyledTableCell aling="center">{i?.finalValue} kWh</StyledTableCell>
+                  {/* <StyledTableCell aling="center">{i?.y?.toFixed(1)} kWh</StyledTableCell> */}
+                  <StyledTableCell aling="center">{i?.accumulated} kWh</StyledTableCell>
                 </StyledTableRow>
               ))}
 
@@ -103,7 +104,7 @@ const TableConsumptions = () => {
                   scope="row"
                 >
                   {' '}
-                  {totalValue.toFixed(1)} kWh
+                  {totalValue?.toFixed(1)} kWh
                 </StyledTableCell2>
 
                 <StyledTableCell2

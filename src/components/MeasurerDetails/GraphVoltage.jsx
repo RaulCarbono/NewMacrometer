@@ -1,13 +1,14 @@
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
+import { dia, medidor, timeZone } from '../../helpers/dataMacrometer';
 import { GET_TWELVE_HOUR_VOLTAGE } from '../controllers/measurerController';
 
 export const GraphVoltage = () => {
   const { data } = useQuery(GET_TWELVE_HOUR_VOLTAGE, {
     variables: {
-      serial: '22551432',
-      starTime: 1694062800,
+      serial: medidor,
+      starTime: dia,
     },
     fetchPolicy: 'no-cache',
   });

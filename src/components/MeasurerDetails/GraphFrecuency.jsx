@@ -2,12 +2,12 @@ import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 import { GET_TWELVE_HOUR_FREQUENCYE } from '../controllers/measurerController';
-
+import { dia, medidor, timeZone } from '../../helpers/dataMacrometer';
 export const GraphFrecuency = () => {
   const { data } = useQuery(GET_TWELVE_HOUR_FREQUENCYE, {
     variables: {
-      serial: '22551432',
-      starTime: 1694062800,
+      serial: medidor,
+      starTime: dia,
     },
     fetchPolicy: 'no-cache',
   });
