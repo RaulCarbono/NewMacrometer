@@ -63,6 +63,7 @@ const TableConsumptions = () => {
   const initialValue = data?.getConsumptionHistory?.totalBy[0].initialValue;
   const finalValue = data?.getConsumptionHistory?.totalBy.at(-1).finalValue;
   const totalValue = finalValue - initialValue;
+  console.log(data);
 
   return (
     <>
@@ -84,7 +85,7 @@ const TableConsumptions = () => {
                   <StyledTableCell>{i?.x}</StyledTableCell>
                   <StyledTableCell aling="center">{i?.initialValue} kWh</StyledTableCell>
                   <StyledTableCell aling="center">{i?.finalValue} kWh</StyledTableCell>
-                  {/* <StyledTableCell aling="center">{i?.y?.toFixed(1)} kWh</StyledTableCell> */}
+                  <StyledTableCell aling="center">{i?.y} kWh</StyledTableCell>
                   <StyledTableCell aling="center">{i?.accumulated} kWh</StyledTableCell>
                 </StyledTableRow>
               ))}
