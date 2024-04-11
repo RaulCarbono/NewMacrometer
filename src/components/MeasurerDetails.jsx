@@ -116,7 +116,7 @@ const MeasurerDetails = () => {
             xl={12}
             sx={{ width: '90%' }}
           >
-            <TableConsumptions serial={serial} />
+            {/* <TableConsumptions serial={serial} /> */}
           </Grid>
         </Grid>
       </Box>

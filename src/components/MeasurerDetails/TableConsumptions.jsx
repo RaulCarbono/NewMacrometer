@@ -60,9 +60,9 @@ const TableConsumptions = () => {
     },
     fetchPolicy: 'no-cache',
   });
-  const initialValue = data?.getConsumptionHistory?.totalBy[0].initialValue;
-  const finalValue = data?.getConsumptionHistory?.totalBy.at(-1).finalValue;
-  const totalValue = finalValue - initialValue;
+  const initialValue = data?.getConsumptionHistory?.totalBy.activeEnergy[0].initialValue;
+  const finalValue = data?.getConsumptionHistory?.totalBy.activeEnergy.at(-1).finalValue;
+  const totalValue = initialValue - finalValue;
   console.log(data);
 
   return (
@@ -80,7 +80,7 @@ const TableConsumptions = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data?.getConsumptionHistory?.totalBy.map((i, key) => (
+              {data?.getConsumptionHistory?.totalBy?.activeEnergy.map((i, key) => (
                 <StyledTableRow>
                   <StyledTableCell>{i?.x}</StyledTableCell>
                   <StyledTableCell aling="center">{i?.initialValue} kWh</StyledTableCell>

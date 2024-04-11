@@ -8,22 +8,40 @@ import { dia, medidor, timeZone } from '../../helpers/dataMacrometer';
 import useDays from '../Date/useDays';
 import TableConsumptions from './TableConsumptions';
 
+import { CalendarDate } from 'cally';
+import { useState } from 'react';
+
 export const GraphConsumptionDetailDay = () => {
+  const [diaAnterior, setDiaAnterior] = useState();
+  const [diaActual, setDiaActual] = useState(dia);
+  const previusDay = () => {
+    setDiaActual(dia - 86400);
+  };
   const { data } = useQuery(GET_HISTORY_TOW, {
     variables: {
       serial: medidor,
-      starTime: dia,
+      starTime: diaActual,
       timeZone: timeZone,
     },
     fetchPolicy: 'no-cache',
   });
-  console.log(data?.getConsumptionHistory.res);
 
+  const datos = data?.getConsumptionHistory?.totalBy.activeEnergy;
+  let b;
+  datos?.forEach((i) => {
+    if (i.finalValue !== null) {
+      return (b = i.finalValue);
+    }
+  });
+
+  const activeEnergy = data?.getConsumptionHistory?.currentConsumption?.activeEnergy;
+  const activeEnergyGraph = data?.getConsumptionHistory?.res?.activeEnergy;
+  const reactiveEnergyGraph = data?.getConsumptionHistory?.res?.reactiveEnergy;
   return (
     <>
       <div>
-        {/* <Date /> */}
-
+        {/* <CalendarDate></CalendarDate> */}
+        <button onClick={previusDay}>previus</button>
         <HighchartsReact
           highcharts={Highcharts}
           options={{
@@ -37,12 +55,17 @@ export const GraphConsumptionDetailDay = () => {
 
             title: {
               align: 'left',
-              text: `Consumo total de ${data?.getConsumptionHistory?.currentConsumption?.toFixed(1)} kWh `,
+              text: `Consumo total de ${activeEnergy} kWh `,
             },
 
             subtitle: {
-              align: 'left',
-              text: '' /* "Click the columns to view details. " */,
+              align: 'right',
+
+              style: {
+                color: '#000',
+                fontSize: '16px',
+              },
+              y: 40,
             },
             accessibility: {
               announceNewData: {
@@ -56,33 +79,36 @@ export const GraphConsumptionDetailDay = () => {
               title: {
                 text: '',
               },
-              min: 0,
             },
             legend: {
               enabled: false,
             },
+
             plotOptions: {
+              column: {
+                grouping: false,
+                shadow: false,
+                borderRadius: 4,
+                borderWidth: 2,
+                borderColor: 'black',
+              },
               series: {
-                borderWidth: 0,
                 dataLabels: {
                   enabled: true,
                   format: '{point.y:.1f}',
                 },
               },
             },
-
+            legend: {
+              shadow: false,
+            },
             tooltip: {
-              headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-              pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b> kWh<br/>',
+              shared: true,
+              // headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+              pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y:.2f}</b> kWh<br/>',
             },
 
-            series: [
-              {
-                name: 'Horas',
-                colorByPoint: true,
-                data: data?.getConsumptionHistory.res,
-              },
-            ],
+            series: data?.getConsumptionHistory?.series,
           }}
         />
       </div>

@@ -13,6 +13,8 @@ export const GraphVoltage = () => {
     fetchPolicy: 'no-cache',
   });
 
+  console.log(data?.getTwelveHourVoltage);
+
   return (
     <div>
       <HighchartsReact
@@ -43,20 +45,28 @@ export const GraphVoltage = () => {
             },
           },
           yAxis: {
-            //min: 122,
+            max: 132,
             title: {
               text: 'Voltios',
             },
+            plotLines: [
+              {
+                color: '#432201',
+                width: 2.5,
+                value: data?.getTwelveHourVoltage?.referenceValues?.max,
+                dashStyle: 'dash',
+              },
+            ],
           },
           tooltip: {
             valueSuffix: ' V',
           },
           plotOptions: {
             spline: {
-              lineWidth: 2.5,
+              lineWidth: 1.5,
               states: {
                 hover: {
-                  lineWidth: 4.5,
+                  lineWidth: 1.5,
                 },
               },
               marker: {
@@ -67,7 +77,7 @@ export const GraphVoltage = () => {
           time: {
             timezoneOffset: 300,
           },
-          series: data?.getTwelveHourVoltage.ShowData,
+          series: data?.getTwelveHourVoltage?.ShowData,
           navigation: {
             menuItemStyle: {
               fontSize: '10px',

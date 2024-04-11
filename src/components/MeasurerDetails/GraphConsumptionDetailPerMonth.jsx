@@ -7,7 +7,7 @@ export const GraphConsumptionDetailPerMonth = () => {
   const { data } = useQuery(GET_HISTORY_TOW, {
     variables: {
       serial: medidor,
-      month: 2,
+      month: 3,
       year: 24,
     },
     fetchPolicy: 'no-cache',
@@ -29,7 +29,7 @@ export const GraphConsumptionDetailPerMonth = () => {
 
           title: {
             align: 'left',
-            text: `Consumo total de ${data?.getConsumptionHistory.currentConsumption} kWh `,
+            text: `Consumo total de ${data?.getConsumptionHistory.currentConsumption.activeEnergy} kWh `,
           },
           subtitle: {
             align: 'left',
@@ -53,7 +53,11 @@ export const GraphConsumptionDetailPerMonth = () => {
           },
           plotOptions: {
             series: {
-              borderWidth: 0,
+              grouping: false,
+              shadow: false,
+              borderRadius: 4,
+              borderWidth: 2,
+
               dataLabels: {
                 enabled: true,
                 format: '{point.y:.1f}',
@@ -63,16 +67,10 @@ export const GraphConsumptionDetailPerMonth = () => {
 
           tooltip: {
             headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b> kWh<br/>',
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y:.2f}</b> kWh<br/>',
           },
 
-          series: [
-            {
-              name: 'Horas',
-              colorByPoint: true,
-              data: data?.getConsumptionHistory.res,
-            },
-          ],
+          series: data?.getConsumptionHistory?.series,
         }}
       />
     </div>

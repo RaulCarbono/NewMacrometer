@@ -17,14 +17,15 @@ specifiers:
   '@types/react': ^18.0.37
   '@types/react-dom': ^18.0.11
   '@vitejs/plugin-react-swc': ^3.0.0
+  cally: ^0.4.3
   dayjs: ^1.11.9
   eslint: ^8.38.0
   eslint-plugin-react: ^7.32.2
   eslint-plugin-react-hooks: ^4.6.0
   eslint-plugin-react-refresh: ^0.3.4
   graphql: ^16.6.0
-  highcharts: ^11.1.0
-  highcharts-react-official: ^3.2.0
+  highcharts: ^7.2.1
+  highcharts-react-official: ^2.2.2
   mvp-newmacrometer: 'link:'
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -50,10 +51,11 @@ dependencies:
   '@mui/styled-engine-sc': 5.14.12_styled-components@6.1.8
   '@mui/x-date-pickers': 6.19.4_62z4nyamlrfxhqfctfz3vfu2ce
   '@ramonak/react-progress-bar': 5.2.0_biqbaboplfbrettd7655fr4n2y
+  cally: 0.4.3
   dayjs: 1.11.10
   graphql: 16.8.1
-  highcharts: 11.3.0
-  highcharts-react-official: 3.2.1_kt53eegciqixb4cxzpx275pefa
+  highcharts: 7.2.2
+  highcharts-react-official: 2.2.2_pxt5goisnnuqamszbkegxemrxa
   mvp-newmacrometer: 'link:'
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -1806,6 +1808,10 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: false
 
+  /atomico/1.78.2:
+    resolution: {integrity: sha512-79BoRQOyVIcmIpA9rKnCPMDvxdQVtJfJz4WeCvM7R8o9xta3jgqSv6DutuoRviZjd1ExYaa+jA96euPyLjSqBA==}
+    dev: false
+
   /available-typed-arrays/1.0.6:
     resolution: {integrity: sha512-j1QzY8iPNPG4o4xmO3ptzpRxTciqD3MgEHtifP/YnJpIo58Xu+ne4BejlbkuaLfXn/nz6HFiw29bLpj2PNMdGg==}
     engines: {node: '>= 0.4'}
@@ -1879,6 +1885,12 @@ packages:
   /callsites/3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
+
+  /cally/0.4.3:
+    resolution: {integrity: sha512-X1VFDX4nCSxQV5ak4qtYQDMxcnuX7V+WybUSb6WVIOiX4Jl8pBNWSASkjXQg2javuAsuNkTv5D8xgn2IxNl4jg==}
+    dependencies:
+      atomico: 1.78.2
+    dev: false
 
   /camelize/1.0.1:
     resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
@@ -2716,18 +2728,18 @@ packages:
     dependencies:
       function-bind: 1.1.2
 
-  /highcharts-react-official/3.2.1_kt53eegciqixb4cxzpx275pefa:
-    resolution: {integrity: sha512-hyQTX7ezCxl7JqumaWiGsroGWalzh24GedQIgO3vJbkGOZ6ySRAltIYjfxhrq4HszJOySZegotEF7v+haQ75UA==}
+  /highcharts-react-official/2.2.2_pxt5goisnnuqamszbkegxemrxa:
+    resolution: {integrity: sha512-Xj9JOOL20Vmbl8gjgF2jN89Fx5zqbonjaK6SqwiM4vCjC/ZwtwXEquk+LkymzIVcd4H9Wb/9ASKhBJn5fNtN4g==}
     peerDependencies:
-      highcharts: '>=6.0.0'
-      react: '>=16.8.0'
+      highcharts: '>=5.0.0'
+      react: '>=16.0'
     dependencies:
-      highcharts: 11.3.0
+      highcharts: 7.2.2
       react: 18.2.0
     dev: false
 
-  /highcharts/11.3.0:
-    resolution: {integrity: sha512-Dk+Qfk/xit8KnXKPDxmcVcq48ZlcVSq7oYJR5VZlAVWnJ0BY3JFFi1GOvgSNUzlh2wzsfenihWpkAkWoag4Xqg==}
+  /highcharts/7.2.2:
+    resolution: {integrity: sha512-jRKujQuPKHLgGQd2sByBI9K5m56CInm2augVZnBYqdmyoU88hcI62uuAXHvxC3FW8YY0FJ74A1uw6sxrcmcmvg==}
     dev: false
 
   /hoist-non-react-statics/3.3.2:

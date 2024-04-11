@@ -2,7 +2,7 @@ export function formatoFecha(fecha) {
   const map = {
     dd: fecha.getDate(),
     mm: fecha.getMonth() + 1,
-    yy: fecha.getFullYear().toString().slice(-2),
+    yy: fecha.getFullYear().toString(),
     yyyy: fecha.getFullYear(),
   };
 
