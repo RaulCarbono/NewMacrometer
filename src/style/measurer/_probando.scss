@@ -1,0 +1,19 @@
+.probando {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.dato {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    height: 20px;
+    border: solid 1px #321452;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 20px;
+  
+}

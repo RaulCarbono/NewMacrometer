@@ -4,6 +4,8 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import Paper from '@mui/material/Paper';
+
 import { GraphConsumptionDetailDay } from './GraphConsumptionDetailDay';
 import { GraphConsumptionDetailPerMonth } from './GraphConsumptionDetailPerMonth';
 import { GraphConsumptionDetailYear } from './GraphConsumptionDetailYear';
@@ -53,6 +55,19 @@ export const TabGraphic = () => {
           <GraphConsumptionDetailYear />
         </TabPanel>
       </TabContext>
+        {/* <Box sx={{
+          display:'flex',
+          justifyContent:'space-around',
+          flexWrap:  'wrap',
+          '& >not(style)' : {
+            m:1, 
+            width: '100%',
+            height: 20
+          }
+        }}>
+          <Paper elevation={2}> HOLA </Paper>
+        </Box> */}
+     
     </Box>
   );
 };

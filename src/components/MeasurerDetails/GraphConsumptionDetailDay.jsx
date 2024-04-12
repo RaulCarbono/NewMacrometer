@@ -3,16 +3,16 @@ import HighchartsReact from 'highcharts-react-official';
 import { useQuery } from '@apollo/client';
 
 import { GET_HISTORY_TOW } from '../controllers/measurerController';
-import { Date } from '../Date/Date';
-import { dia, medidor, timeZone } from '../../helpers/dataMacrometer';
-import useDays from '../Date/useDays';
-import TableConsumptions from './TableConsumptions';
 
-import { CalendarDate } from 'cally';
+import { dia, medidor, timeZone } from '../../helpers/dataMacrometer';
+
+
+
+
 import { useState } from 'react';
 
 export const GraphConsumptionDetailDay = () => {
-  const [diaAnterior, setDiaAnterior] = useState();
+
   const [diaActual, setDiaActual] = useState(dia);
   const previusDay = () => {
     setDiaActual(dia - 86400);
@@ -26,17 +26,11 @@ export const GraphConsumptionDetailDay = () => {
     fetchPolicy: 'no-cache',
   });
 
-  const datos = data?.getConsumptionHistory?.totalBy.activeEnergy;
-  let b;
-  datos?.forEach((i) => {
-    if (i.finalValue !== null) {
-      return (b = i.finalValue);
-    }
-  });
+  
 
   const activeEnergy = data?.getConsumptionHistory?.currentConsumption?.activeEnergy;
-  const activeEnergyGraph = data?.getConsumptionHistory?.res?.activeEnergy;
-  const reactiveEnergyGraph = data?.getConsumptionHistory?.res?.reactiveEnergy;
+
+
   return (
     <>
       <div>
@@ -80,9 +74,7 @@ export const GraphConsumptionDetailDay = () => {
                 text: '',
               },
             },
-            legend: {
-              enabled: false,
-            },
+            
 
             plotOptions: {
               column: {
@@ -111,6 +103,10 @@ export const GraphConsumptionDetailDay = () => {
             series: data?.getConsumptionHistory?.series,
           }}
         />
+        <div className='probando'>
+          <div className='dato'><span>Menor consumo activa {data?.getConsumptionHistory?.maxAndMinConsumption?.maxAndMinConsActiveEnergy?.min} kWh, Hora: {data?.getConsumptionHistory?.maxAndMinConsumption?.maxAndMinConsActiveEnergy?.lowConsumptionHour}</span> - <span>Mayor consumo de activa {data?.getConsumptionHistory?.maxAndMinConsumption?.maxAndMinConsActiveEnergy?.max} kWh, Hora:{data?.getConsumptionHistory?.maxAndMinConsumption?.maxAndMinConsActiveEnergy?.highConsumptionHour}</span></div>
+          <div className='dato'><span>Menor consumo reactiva {data?.getConsumptionHistory?.maxAndMinConsumption?.maxAndMinConsRactiveEnergy?.min} kWh, Hora: {data?.getConsumptionHistory?.maxAndMinConsumption?.maxAndMinConsRactiveEnergy?.lowConsumptionHour}</span> - <span>Mayor consumo de reactiva {data?.getConsumptionHistory?.maxAndMinConsumption?.maxAndMinConsRactiveEnergy?.max} kWh, Hora:{data?.getConsumptionHistory?.maxAndMinConsumption?.maxAndMinConsRactiveEnergy?.highConsumptionHour}</span></div>
+        </div>
       </div>
     </>
   );

@@ -85,7 +85,7 @@ const MeasurerDetails = () => {
             md={12}
             lg={12}
             xl={12}
-            sx={{ height: '40px' }}
+            sx={{ height: '50px' }}
           ></Grid>
           <Grid
             xs={12}
@@ -93,7 +93,7 @@ const MeasurerDetails = () => {
             md={12}
             lg={12}
             xl={12}
-            sx={{ height: '550px' }}
+            sx={{ height: '560px' }}
           >
             <TabGraphic serial={serial} />
           </Grid>
